@@ -45,7 +45,7 @@
                                                 <label for="heading">Heading Berita</label>
                                                 <input type="text" name="heading"
                                                     class="form-control @error('heading') is-invalid @enderror" id="heading"
-                                                    placeholder="Nama Produk" value="{{ old('heading') }}" required>
+                                                    placeholder="Heading Berita" value="{{ old('heading') }}" required>
                                                 @error('heading')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
@@ -56,7 +56,7 @@
                                                 <label for="judul">Judul Berita</label>
                                                 <input type="text" name="judul"
                                                     class="form-control @error('judul') is-invalid @enderror" id="judul"
-                                                    placeholder="Nama Produk" value="{{ old('judul') }}" required>
+                                                    placeholder="Judul Berita" value="{{ old('judul') }}" required>
                                                 @error('judul')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror

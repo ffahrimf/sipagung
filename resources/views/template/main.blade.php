@@ -342,6 +342,24 @@
                                     </li>
 
                                 </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/mbantuan" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Bantuan Sosial</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/mkis" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>JKN-KIS</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
                             @endif
                             {{-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -652,7 +670,7 @@
                 "paging": false, // Menonaktifkan paging
                 "ordering": false, // Menonaktifkan sorting
                 "info": false, // Menonaktifkan info jumlah data
-                "searching": true, // Menonaktifkan pencarian
+                "searching": false, // Menonaktifkan pencarian
                 "buttons": [{
                         extend: "copy",
                         exportOptions: {

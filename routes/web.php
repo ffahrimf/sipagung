@@ -15,6 +15,8 @@ use App\Http\Controllers\{
     UserController,
     MasterPekerjaanController,
     MasterDisabilitasController,
+    MasterKISController,
+    MasterBantuanController
 };
 
 use App\Http\Controllers\showcase\{LapakController, BeritaController};
@@ -94,6 +96,8 @@ Route::middleware(['auth', 'cek.level:Admin,Pamekaran,Limusagung,Nanggeleng,Dara
 Route::middleware(['auth', 'cek.level:Admin'])->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/mpekerjaan', MasterPekerjaanController::class);
+    Route::resource('/mkis', MasterKISController::class);
+    Route::resource('/mbantuan', MasterBantuanController::class);
 
     Route::resource('/admin/visi-misi', AdmVisiMisiController::class);
     Route::resource('/admin/sejarah', AdmSejarahController::class);

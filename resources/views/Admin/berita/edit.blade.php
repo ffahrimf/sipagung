@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/admin/berita">Berita Desa</a></li>
+                            <li class="breadcrumb-item"><a href="/berita">Berita Desa</a></li>
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
                     </div><!-- /.col -->
@@ -25,7 +25,6 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -42,36 +41,35 @@
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="heading">Heading Berita</label>
                                                 <input type="text" name="heading"
                                                     class="form-control @error('heading') is-invalid @enderror"
-                                                    id="heading" placeholder="Nama Produk"
+                                                    id="heading" placeholder="Heading Berita"
                                                     value="{{ old('heading', $berita->heading) }}" required>
                                                 @error('heading')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="judul">Judul Berita</label>
                                                 <input type="text" name="judul"
-                                                    class="form-control @error('judul') is-invalid @enderror"
-                                                    id="judul" placeholder="Nama Produk"
-                                                    value="{{ old('judul', $berita->judul) }}" required>
+                                                    class="form-control @error('judul') is-invalid @enderror" id="judul"
+                                                    placeholder="Judul Berita" value="{{ old('judul', $berita->judul) }}" required>
                                                 @error('judul')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="tanggal">Tanggal</label>
-                                                <input type="text" name="tanggal"
-                                                    class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
-                                                    placeholder="Mitra" value="{{ old('tanggal', $berita->tanggal) }}"
+                                                <input type="date" name="tanggal"
+                                                    class="form-control @error('tanggal') is-invalid @enderror"
+                                                    id="tanggal" value="{{ old('tanggal', $berita->tanggal) }}"
                                                     required>
                                                 @error('tanggal')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
@@ -81,7 +79,6 @@
                                     </div>
 
                                     <div class="row">
-                                       
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="deskripsi">Deskripsi</label>
@@ -96,27 +93,25 @@
                                             <div class="form-group">
                                                 <label for="image">Gambar</label>
                                                 <input type="file" name="image"
-                                                    class="form-control @error('image') is-invalid @enderror" id="image">
+                                                    class="form-control @error('image') is-invalid @enderror"
+                                                    id="image">
                                                 @error('image')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
-                                                @if ($berita->image)
-                                                    <img src="{{ asset($berita->image) }}" alt="Current Image"
-                                                        class="mt-2" style="max-width: 200px;">
+                                                <!-- Optional: display the current image -->
+                                                @if($berita->image)
+                                                    <img src="{{ asset('storage/' . $berita->image) }}" alt="Current Image" class="img-thumbnail mt-2" width="150">
                                                 @endif
                                             </div>
                                         </div>
                                     </div>
 
-
-                                    
-
                                 </div>
-                                <div class="card-footer text-rigst">
+                                <div class="card-footer text-right">
                                     <button class="btn btn-dark mr-1" type="reset"><i
                                             class="fa-solid fa-arrows-rotate"></i> Reset</button>
-                                    <button class="btn btn-success" type="submit"><i
-                                            class="fa-solid fa-floppy-disk"></i> Save</button>
+                                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i>
+                                        Update</button>
                                 </div>
                             </form>
                         </div>

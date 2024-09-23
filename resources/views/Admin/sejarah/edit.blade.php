@@ -44,14 +44,14 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Edit Visi</h5>
+                                <h5 class="card-title">Edit Sejarah</h5>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="content">Sejarah</label>
                                     <textarea name="content"
                                         class="form-control @error('content') is-invalid @enderror" id="content"
-                                        placeholder="Visi" rows="8" required>{{ old('content', $sejarah->content) }}</textarea>
+                                        placeholder="Sejarah Desa" rows="8" required>{{ old('content', $sejarah->content) }}</textarea>
                                     @error('content')
                                         <span class="invalid-feedback text-danger">{{ $message }}</span>
                                     @enderror

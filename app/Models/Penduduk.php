@@ -31,6 +31,8 @@ class Penduduk extends Model
         'pekerjaan',
         'golongan_darah',
         'shdk',
+        'bantuan',
+        'kis',
         'ayah',
         'ibu',
         'kepala_keluarga'
@@ -38,6 +40,17 @@ class Penduduk extends Model
 
     public function pekerjaan()
     {
-        return $this->belongsTo(Pekerjaan::class, 'pekerjaan', 'id_pekerjaan','nama');
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan', 'id_pekerjaan');
     }
+    
+    public function kis()
+    {
+        return $this->belongsTo(KIS::class, 'kis', 'id_kis');
+    }
+    
+    public function bantuan()
+    {
+        return $this->belongsTo(Bantuan::class, 'bantuan', 'id_bantuan');
+    }
+    
 }

@@ -58,7 +58,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="no_kk">No. KK</label>
-                                                <input type="text" name="no_kk"
+                                                <input type="number" name="no_kk"
                                                     class="form-control @error('no_kk') is-invalid @enderror" id="no_kk"
                                                     placeholder="Nomor Kartu Keluarga"
                                                     value="{{ old('no_kk', $penduduk->no_kk) }}" required>
@@ -353,7 +353,7 @@
                                                 <select name="pekerjaan" id="pekerjaan"
                                                     class="form-control @error('pekerjaan') is-invalid @enderror"
                                                     required>
-                                                    <option value="">Pilih Pekerjaan</option>
+                                                    <option value="" disabled selected>Pilih Pekerjaan</option>
                                                     @foreach ($pekerjaanList as $item)
                                                         <option value="{{ $item->id_pekerjaan }}"
                                                             {{ old('pekerjaan', $penduduk->pekerjaan) == $item->nama ? 'selected' : '' }}>
@@ -402,31 +402,36 @@
                                             <div class="form-group">
                                                 <label for="shdk">Status Hubungan Dalam Keluarga</label>
                                                 <select name="shdk"
-    class="form-control @error('shdk') is-invalid @enderror"
-    id="shdk" required>
-    <option value="">Pilih Status</option>
-    <option value="Anak"
-        {{ old('shdk', $penduduk->shdk) == 'Anak' ? 'selected' : '' }}>Anak
-    </option>
-    <option value="Cucu"
-        {{ old('shdk', $penduduk->shdk) == 'Cucu' ? 'selected' : '' }}>Cucu
-    </option>
-    <option value="Famili Lain"
-        {{ old('shdk', $penduduk->shdk) == 'Famili Lain' ? 'selected' : '' }}>Famili Lain
-    </option>
-    <option value="Istri"
-        {{ old('shdk', $penduduk->shdk) == 'Istri' ? 'selected' : '' }}>Istri
-    </option>
-    <option value="Kepala Keluarga"
-        {{ old('shdk', $penduduk->shdk) == 'Kepala Keluarga' ? 'selected' : '' }}>Kepala Keluarga
-    </option>
-    <option value="Lainnya"
-        {{ old('shdk', $penduduk->shdk) == 'Lainnya' ? 'selected' : '' }}>Lainnya
-    </option>
-    <option value="Orangtua"
-        {{ old('shdk', $penduduk->shdk) == 'Orangtua' ? 'selected' : '' }}>Orangtua
-    </option>
-</select>
+                                                    class="form-control @error('shdk') is-invalid @enderror"
+                                                    id="shdk" required>
+                                                    <option value="" disabled selected>Pilih Status</option>
+                                                    <option value="Anak"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Anak' ? 'selected' : '' }}>Anak
+                                                    </option>
+                                                    <option value="Cucu"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Cucu' ? 'selected' : '' }}>Cucu
+                                                    </option>
+                                                    <option value="Famili Lain"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Famili Lain' ? 'selected' : '' }}>
+                                                        Famili Lain
+                                                    </option>
+                                                    <option value="Istri"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Istri' ? 'selected' : '' }}>
+                                                        Istri
+                                                    </option>
+                                                    <option value="Kepala Keluarga"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Kepala Keluarga' ? 'selected' : '' }}>
+                                                        Kepala Keluarga
+                                                    </option>
+                                                    <option value="Lainnya"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Lainnya' ? 'selected' : '' }}>
+                                                        Lainnya
+                                                    </option>
+                                                    <option value="Orangtua"
+                                                        {{ old('shdk', $penduduk->shdk) == 'Orangtua' ? 'selected' : '' }}>
+                                                        Orangtua
+                                                    </option>
+                                                </select>
 
                                                 @error('shdk')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
@@ -437,6 +442,47 @@
                                     </div>
 
 
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="bantuan">Bantuan Sosial</label>
+                                                <select name="bantuan" id="bantuan"
+                                                    class="form-control @error('bantuan') is-invalid @enderror"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih Bantuan</option>
+                                                    @foreach ($bantuanList as $item)
+                                                        <option value="{{ $item->id_bantuan }}"
+                                                            {{ old('bantuan', $penduduk->bantuan) == $item->jenis ? 'selected' : '' }}>
+                                                            {{ $item->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('bantuan')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kis">JKN-KIS</label>
+                                                <select name="kis" id="kis"
+                                                    class="form-control @error('kis') is-invalid @enderror"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih JKN-KIS</option>
+                                                    @foreach ($kisList as $item)
+                                                        <option value="{{ $item->id_kis }}"
+                                                            {{ old('kis', $penduduk->kis) == $item->jenis ? 'selected' : '' }}>
+                                                            {{ $item->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('kis')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 

@@ -44,7 +44,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="nik">NIK</label>
-                                                <input type="text" name="nik"
+                                                <input type="number" name="nik"
                                                     class="form-control @error('nik') is-invalid @enderror" id="nik"
                                                     placeholder="Nomor Induk Kependudukan" value="{{ old('nik') }}"
                                                     required>
@@ -56,7 +56,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="no_kk">No. KK</label>
-                                                <input type="text" name="no_kk"
+                                                <input type="number" name="no_kk"
                                                     class="form-control @error('no_kk') is-invalid @enderror" id="no_kk"
                                                     placeholder="Nomor Kartu Keluarga" value="{{ old('no_kk') }}" required>
                                                 @error('no_kk')
@@ -338,7 +338,7 @@
                                                 <select name="pekerjaan" id="pekerjaan"
                                                     class="form-control @error('pekerjaan') is-invalid @enderror"
                                                     required>
-                                                    <option value="">Pilih Pekerjaan</option>
+                                                    <option value="" disabled selected>Pilih Pekerjaan</option>
                                                     @foreach ($pekerjaanList as $item)
                                                         <option value="{{ $item->nama }}"
                                                             {{ old('pekerjaan', isset($pekerjaan) ? $pekerjaan->nama : '') == $item->nama ? 'selected' : '' }}>
@@ -421,6 +421,56 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
+                                                <label for="bantuan">Bantuan</label>
+                                                <select name="bantuan" id="bantuan"
+                                                    class="form-control @error('bantuan') is-invalid @enderror"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih Bantuan Sosial</option>
+                                                    <option value="-">Tidak Ada</option>
+                                                    @foreach ($bantuanList as $item)
+                                                        <option value="{{ $item->jenis }}"
+                                                            {{ old('bantuan', isset($bantuan) ? $bantuan->jenis : '') == $item->jenis ? 'selected' : '' }}>
+                                                            {{ $item->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('bantuan')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kis">JKN-KIS</label>
+                                                <select name="kis" id="kis"
+                                                    class="form-control @error('kis') is-invalid @enderror"
+                                                    required>
+                                                    <option value="" disabled selected>Pilih JKN-KIS</option>
+                                                    <option value="-">Tidak Ada</option>
+                                                    @foreach ($kisList as $item)
+                                                        <option value="{{ $item->jenis }}"
+                                                            {{ old('kis', isset($kis) ? $kis->jenis : '') == $item->jenis ? 'selected' : '' }}>
+                                                            {{ $item->jenis }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('kis')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        </div>
+
+
+
+
+                                    
+                                    
+                                    
+                                    
+                                        <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
                                                 <label for="ayah">Nama Ayah</label>
                                                 <input type="text" name="ayah"
                                                     class="form-control @error('ayah') is-invalid @enderror"
@@ -444,6 +494,9 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">

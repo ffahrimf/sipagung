@@ -45,6 +45,7 @@
                                                 <th>#</th>
                                                 <th>Nama Produk</th>
                                                 <th>Harga</th>
+                                                <th>Kategori</th>
                                                 <th>Deskripsi</th>
                                                 <th>Mitra</th>
                                                 <th>Link WA</th>
@@ -59,6 +60,7 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $data->nama_produk }}</td>
                                                     <td>{{ number_format($data->harga, 0, ',', '.') }}</td>
+                                                    <td>{{ $data->kategori }}</td>
                                                     <td>{{ $data->deskripsi }}</td>
                                                     <td>{{ $data->mitra }}</td>
                                                     <td><a href="{{ $data->link_wa }}" target="_blank">Link</a></td>

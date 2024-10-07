@@ -19,6 +19,7 @@ class Lapakdesa extends Model
     protected $fillable = [
         'nama_produk',
         'harga',
+        'kategori',
         'deskripsi',
         'mitra',
         'link_wa',

@@ -17,6 +17,7 @@ class CreateTLapakdesaTable extends Migration
             $table->id(); // Adds an auto-incrementing UNSIGNED BIGINT (primary key)
             $table->string('nama_produk');
             $table->decimal('harga', 15, 2); // Adjust precision and scale as needed
+            $table->string('kategori');
             $table->text('deskripsi')->nullable();
             $table->string('mitra');
             $table->string('link_wa')->nullable();

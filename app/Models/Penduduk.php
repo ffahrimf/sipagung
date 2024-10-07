@@ -10,8 +10,8 @@ class Penduduk extends Model
     use HasFactory;
     protected $table = 't_penduduk';
     protected $primaryKey = 'nik';
-    public $incrementing = false; 
-    protected $keyType = 'string'; 
+    public $incrementing = false;
+    protected $keyType = 'string';
     public $timestamps = true;
 
     protected $fillable = [
@@ -42,15 +42,14 @@ class Penduduk extends Model
     {
         return $this->belongsTo(Pekerjaan::class, 'pekerjaan', 'id_pekerjaan');
     }
-    
+
     public function kis()
     {
         return $this->belongsTo(KIS::class, 'kis', 'id_kis');
     }
-    
+
     public function bantuan()
     {
         return $this->belongsTo(Bantuan::class, 'bantuan', 'id_bantuan');
     }
-    
 }

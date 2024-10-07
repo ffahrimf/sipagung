@@ -28,6 +28,7 @@ class AdmLapakController extends Controller
         $request->validate([
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|numeric',
+            'kategori' => 'required|string|max:40',
             'deskripsi' => 'nullable|string',
             'mitra' => 'required|string|max:255',
             'link_wa' => 'nullable|url',
@@ -65,6 +66,7 @@ class AdmLapakController extends Controller
         $request->validate([
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|numeric',
+            'kategori' => 'required|string|max:40',
             'deskripsi' => 'nullable|string',
             'mitra' => 'required|string|max:255',
             'link_wa' => 'nullable|url',

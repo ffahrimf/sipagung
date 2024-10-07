@@ -49,11 +49,11 @@
                                                 </div>
                                                 <input name="search" type="text" id="simple-search"
                                                     value="{{ request('search') }}"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
-                                                    placeholder="NIK, Nama, No. KK..." />
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#0d9488] focus:border-[#0d9488] block w-full ps-10 p-2.5"
+                                                    placeholder="Cari Penduduk..." />
                                             </div>
                                             <button type="submit"
-                                                class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                                class="p-2.5 ms-2 text-sm font-medium text-white bg-[#0d9488] rounded-lg border border-[#0d9488] hover:bg-primaryhover focus:ring-4 focus:outline-none focus:ring-teal-300">
                                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                     fill="none" viewBox="0 0 20 20">
                                                     <path stroke="currentColor" stroke-linecap="round"

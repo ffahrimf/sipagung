@@ -20,7 +20,7 @@ use App\Http\Controllers\{
 };
 
 use App\Http\Controllers\showcase\{LapakController, BeritaController};
-use App\Http\Controllers\Admin\{AdmVisiMisiController,AdmBeritaController,AdmSejarahController,AdmLapakController};
+use App\Http\Controllers\Admin\{AdmVisiMisiController, AdmBeritaController, AdmSejarahController, AdmLapakController};
 use App\Http\Controllers\showcase\demografi\{SCPendidikanController, SCPekerjaanController, SCAgamaController, SCJenisKelaminController, SCUmurController, SCLuasWilayahController, SCDisabilitasController};
 use App\Http\Controllers\showcase\profile\{SejarahController, VisiMisiController, AparatController};
 use Illuminate\Support\Facades\Route;

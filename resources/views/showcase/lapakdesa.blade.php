@@ -23,8 +23,6 @@
 
                 <div class="flex flex-row gap-4">
 
-
-
                     <form class=" max-w-lg">
                         <div class="flex">
                             <button id="dropdown-button" data-dropdown-toggle="dropdown"

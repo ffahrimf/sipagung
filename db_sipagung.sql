@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 23 Sep 2024 pada 21.33
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.3.11
+-- Host: localhost:3306
+-- Generation Time: Oct 07, 2024 at 08:28 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,33 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` bigint UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -80,17 +80,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_reset_tokens`
+-- Table structure for table `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `password_reset_tokens`
+-- Dumping data for table `password_reset_tokens`
 --
 
 INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
@@ -99,16 +99,16 @@ INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -118,18 +118,18 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_bantuan`
+-- Table structure for table `t_bantuan`
 --
 
 CREATE TABLE `t_bantuan` (
-  `id_bantuan` int(11) NOT NULL,
-  `jenis` varchar(40) NOT NULL,
+  `id_bantuan` int NOT NULL,
+  `jenis` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `t_bantuan`
+-- Dumping data for table `t_bantuan`
 --
 
 INSERT INTO `t_bantuan` (`id_bantuan`, `jenis`, `created_at`, `updated_at`) VALUES
@@ -143,38 +143,38 @@ INSERT INTO `t_bantuan` (`id_bantuan`, `jenis`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_berita`
+-- Table structure for table `t_berita`
 --
 
 CREATE TABLE `t_berita` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `heading` varchar(255) NOT NULL,
-  `judul` varchar(255) NOT NULL,
-  `deskripsi` text NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal` date NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_berita`
+-- Dumping data for table `t_berita`
 --
 
 INSERT INTO `t_berita` (`id`, `heading`, `judul`, `deskripsi`, `tanggal`, `image`, `created_at`, `updated_at`) VALUES
-(4, 'BNNK Ciamis', 'Sosialisasi Bahaya Narkoba', 'Program Pencegahan dan Pemberantasan Narkotika dan Zat Adiktif Lainnya (NAPZA).', '2024-07-16', 'storage/img/AdrHNerFGBCzLr9PuY54E44sTu4qYm4Pp0qQmBVz.jpg', '2024-09-23 15:46:41', '2024-09-23 15:46:41');
+(6, 'sasa', 'sasa', 'sasa', '2024-10-06', 'storage/img/uqtCBiQuNJCN4YJR6rwyMvEsTWpWEbcAHjpaJxU2.png', '2024-10-07 03:55:53', '2024-10-07 03:55:53');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_disabilitas`
+-- Table structure for table `t_disabilitas`
 --
 
 CREATE TABLE `t_disabilitas` (
-  `id_disabilitas` int(10) UNSIGNED NOT NULL,
-  `nik` bigint(20) NOT NULL,
-  `kategori` enum('Fisik','Ganda','Mental','Sensorik') NOT NULL,
-  `dusun` varchar(50) NOT NULL,
+  `id_disabilitas` int UNSIGNED NOT NULL,
+  `nik` bigint NOT NULL,
+  `kategori` enum('Fisik','Ganda','Mental','Sensorik') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dusun` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -182,20 +182,20 @@ CREATE TABLE `t_disabilitas` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_kis`
+-- Table structure for table `t_kis`
 --
 
 CREATE TABLE `t_kis` (
-  `id_kis` int(11) NOT NULL,
-  `jenis` varchar(40) NOT NULL,
-  `kategori` varchar(40) NOT NULL,
-  `keterangan` varchar(40) NOT NULL,
+  `id_kis` int NOT NULL,
+  `jenis` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
+  `kategori` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `t_kis`
+-- Dumping data for table `t_kis`
 --
 
 INSERT INTO `t_kis` (`id_kis`, `jenis`, `kategori`, `keterangan`, `created_at`, `updated_at`) VALUES
@@ -209,46 +209,45 @@ INSERT INTO `t_kis` (`id_kis`, `jenis`, `kategori`, `keterangan`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_lapakdesa`
+-- Table structure for table `t_lapakdesa`
 --
 
 CREATE TABLE `t_lapakdesa` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama_produk` varchar(255) NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `nama_produk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `harga` decimal(15,2) NOT NULL,
-  `deskripsi` text DEFAULT NULL,
-  `mitra` varchar(255) NOT NULL,
-  `link_wa` varchar(255) DEFAULT NULL,
-  `link_maps` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `kategori` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci,
+  `mitra` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_wa` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_maps` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_lapakdesa`
+-- Dumping data for table `t_lapakdesa`
 --
 
-INSERT INTO `t_lapakdesa` (`id`, `nama_produk`, `harga`, `deskripsi`, `mitra`, `link_wa`, `link_maps`, `image`, `created_at`, `updated_at`) VALUES
-(5, 'Jamur Crispy Sajodo', 7000.00, 'Jamur Crispy Gurih dan Renyah', 'ERNI ANGGRAENI', 'https://wa.me/6282249154086', 'https://maps.app.goo.gl/BUbmXxXBhrbcNBPB8', 'storage/img/vpbFwXmbY0nOlBt7qNFQRKFkKCmNpQA2EcV5ZZ7W.png', '2024-08-26 08:40:10', '2024-09-23 14:45:42'),
-(6, 'Dodol H. Uhem', 10000.00, 'Dodol berbahan ketan, santan, dan gula.', 'H. UHEM', 'https://wa.me/6282249154086', 'https://maps.app.goo.gl/U7h4o1VqrCk9rRSd6', 'storage/img/NOvMnV4zhXrWoHfcK3xRoi6EEAXaHvXapwoOZmQc.png', '2024-08-26 08:42:35', '2024-09-23 14:45:50'),
-(7, 'Comet Pamekaran', 10000.00, 'Comro Lemet (kecil) berbahan singkong.', 'ETI ROHAETI', 'https://wa.me/6282249154086', 'https://maps.app.goo.gl/KqKz9osEhTXvWtCb7', 'storage/img/28eC7Re5mPGO1DIb8LdVWbztomD9a3JXPpfINdNk.png', '2024-08-26 08:43:28', '2024-09-23 15:29:53');
+INSERT INTO `t_lapakdesa` (`id`, `nama_produk`, `harga`, `kategori`, `deskripsi`, `mitra`, `link_wa`, `link_maps`, `image`, `created_at`, `updated_at`) VALUES
+(11, 'Jamur Crispy SAJODO', '15000.00', 'Makanan', 'Jamur Crispy Gurih dan Renyah', 'erni anggraeni', 'https://id.shp.ee/Hmbfgna', 'https://maps.app.goo.gl/AwtbqChReKaz9EW98', 'storage/img/qRWvA5KEWmDVAzD7gYvgH24D6mMKYk4Sv3a14puh.jpg', '2024-10-07 04:43:02', '2024-10-07 04:43:02');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_pekerjaan`
+-- Table structure for table `t_pekerjaan`
 --
 
 CREATE TABLE `t_pekerjaan` (
-  `id_pekerjaan` int(10) UNSIGNED NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `id_pekerjaan` int UNSIGNED NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_pekerjaan`
+-- Dumping data for table `t_pekerjaan`
 --
 
 INSERT INTO `t_pekerjaan` (`id_pekerjaan`, `nama`, `created_at`, `updated_at`) VALUES
@@ -345,37 +344,37 @@ INSERT INTO `t_pekerjaan` (`id_pekerjaan`, `nama`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_penduduk`
+-- Table structure for table `t_penduduk`
 --
 
 CREATE TABLE `t_penduduk` (
-  `nik` bigint(20) NOT NULL,
-  `no_kk` bigint(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `tempat_lahir` varchar(20) NOT NULL,
+  `nik` bigint NOT NULL,
+  `no_kk` bigint NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tempat_lahir` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `jenis_kelamin` varchar(20) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
-  `rt` varchar(5) NOT NULL,
-  `rw` varchar(50) NOT NULL,
-  `dusun` varchar(50) NOT NULL,
-  `agama` varchar(20) NOT NULL,
-  `status_perkawinan` varchar(20) NOT NULL,
-  `pendidikan` varchar(50) NOT NULL,
-  `pekerjaan` varchar(40) NOT NULL,
-  `golongan_darah` varchar(20) NOT NULL,
-  `shdk` varchar(20) NOT NULL,
-  `bantuan` varchar(40) NOT NULL,
-  `kis` varchar(40) NOT NULL,
-  `ayah` varchar(50) NOT NULL,
-  `ibu` varchar(50) NOT NULL,
-  `kepala_keluarga` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rt` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rw` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dusun` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agama` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_perkawinan` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pendidikan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pekerjaan` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `golongan_darah` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shdk` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bantuan` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kis` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ayah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ibu` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kepala_keluarga` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_penduduk`
+-- Dumping data for table `t_penduduk`
 --
 
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
@@ -526,7 +525,6 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3206392507090001, 3207071209110012, 'Ogi Permana', 'Ciamis', '2009-07-25', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Cucu', '', '', 'Osa Rosmana', 'Titin Kartini', 'Supendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3206396109800003, 3207072610070055, 'Titin Komalasari', 'Tasikmalaya', '1980-09-21', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ili', 'Enju', 'Yaya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3206396408090003, 3207072610070055, 'Elsa Wulandari', 'Tasikmalaya', '2007-08-24', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Amas Mastur', 'Titin Komalasari', 'Yaya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207010806040001, 3207010609086665, 'Fahri Muhammad Fahrurroji', 'Ciamis', '2004-06-08', 'Perempuan', 'Jl. Rancapetir No. 6', '002', '006', 'Pamekaran', 'Islam', 'Belum Kawin', 'Akademi/Diploma III/S. Muda', '70', 'O', 'Anak', '-', '2', 'Mumu', 'Mamah', 'Mumu', '2024-09-23 17:49:31', '2024-09-23 18:47:12'),
 (3207011808820005, 3207071910170001, 'Dian Herdiana', 'Ciamis', '1982-08-18', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Juju', 'Kusmiati', 'Dian Herdiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207012108060003, 3207071910170001, 'Agis Herdi Pratama', 'Ciamis', '2006-08-21', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Dian Herdiana', 'Susi Novianti', 'Dian Herdiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207020806890002, 3207071410190005, 'Eka Mulyana', 'Ciamis', '1989-06-08', 'Laki-laki', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Suherman', 'Mardiah', 'Eka Mulyana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -662,9 +660,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070107420088, 3207071309070544, 'Suhatma', 'Ciamis', '1942-07-01', 'Laki-laki', 'DUSUN CIMANGLID,RT : 002,RW : 003,Kodepos :46263,Telp :', '002', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Jatma', 'Sukati', 'Suhatma', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070107440060, 3207071209110012, 'Supendi', 'Sukabumi', '1944-07-01', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Muhamad Yusup', 'Ating', 'Supendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070107480012, 3207070909070438, 'Iing', 'Ciamis', '1948-07-01', 'Laki-laki', 'DUSUN CIMAJA,RT : 001,RW : 005,Kodepos :46263,Telp :', '001', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Jalil', 'S Sadiah', 'Iing', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070107500010, 3207070909070407, 'Samud', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN CIMAJA,RT : 001,RW : 005,Kodepos :46263,Telp :', '001', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Wianta', 'Iyoh', 'Samud', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070107500010, 3207070909070407, 'Samud', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN CIMAJA,RT : 001,RW : 005,Kodepos :46263,Telp :', '001', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Wianta', 'Iyoh', 'Samud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070107500041, 3207071509070484, 'Uus Sugana', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Emod', 'Iti', 'Uus Sugana', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070107500041, 3207071509070484, 'Uus Sugana', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Emod', 'Iti', 'Uus Sugana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070107500051, 3207071809070435, 'Kondi', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Mahpud', 'Eoh', 'Kondi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070107500070, 3207073009070060, 'Tirta', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Madrais', 'Ito', 'Tirta', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070107500075, 3207072801080005, 'Kustiman', 'Ciamis', '1950-07-01', 'Laki-laki', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Sanrai', 'Eroh.', 'Kustiman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -810,9 +808,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070109670002, 3207072309070624, 'Dadang Jajat', 'Tasikmalaya', '1967-09-01', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Kawin', 'Diploma I/II', 'Pensiunan', 'AB', 'Kepala Keluarga', '', '', 'Ihing', 'Enjoh', 'Dadang Jajat', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070109700003, 3207072809070340, 'Nana', 'Ciamis', '1970-09-01', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Perangkat Desa', 'A', 'Kepala Keluarga', '', '', 'Amarta', 'Ati', 'Nana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070109850002, 3207072809070368, 'Edi Supriyadi', 'Ciamis', '1985-09-01', 'Laki-laki', 'DUSUN LIMUS AGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Tukang Las/Pandai Besi', '-', 'Anak', '', '', 'Karim', 'Juju', 'Karim', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070109860004, 3207072107140003, 'Yudi Setiana', 'Panumbangan', '1986-09-01', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Guru', 'A+', 'Kepala Keluarga', '', '', 'Latip', 'Yuyum', 'Yudi Setiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070109860004, 3207072107140003, 'Yudi Setiana', 'Panumbangan', '1986-09-01', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Guru', 'A+', 'Kepala Keluarga', '', '', 'Latip', 'Yuyum', 'Yudi Setiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070109920003, 3207070403140003, 'Rudi Mahe', 'Ciamis', '1992-09-01', 'Laki-laki', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Eman', 'Tati', 'Rudi Mahe', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070109920003, 3207070403140003, 'Rudi Mahe', 'Ciamis', '1992-09-01', 'Laki-laki', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Eman', 'Tati', 'Rudi Mahe', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070109990001, 3207071109070018, 'Abdul Rojak', 'Ciamis', '1999-04-29', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Rayun Pudin', 'Diah', 'Rayun Pudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070109990004, 3207070210070095, 'Taofik Hidayat', 'Ciamis', '1999-09-01', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Elon', 'Eti', 'Elon', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070110030001, 3207070809070568, 'Ripki Hamdani', 'Ciamis', '2003-10-01', 'Laki-laki', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aos', 'Oneng', 'Aos', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -953,9 +951,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070306940001, 3207072811160011, 'Roni Yahya', 'Ciamis', '1994-06-03', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Dayat', 'Eem', 'Roni Yahya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070307070002, 3207072310070070, 'Iman Muldalipah', 'Ciamis', '2007-07-03', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Ade Redi', 'Wati', 'Ade Redi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070307070003, 3207072410070187, 'Riswan Riswandi', 'Ciamis', '2007-07-03', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Anas', 'Titi', 'Anas', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070307140006, 3207070401110005, 'Muhamad Raihan Ramadhan', 'Ciamis', '2014-07-03', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Yaya Mulyadi', 'Imas Ecin', 'Yaya Mulyadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070307140006, 3207070401110005, 'Muhamad Raihan Ramadhan', 'Ciamis', '2014-07-03', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Yaya Mulyadi', 'Imas Ecin', 'Yaya Mulyadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070307700003, 3207070110070256, 'Yoyo', 'Ciamis', '1970-07-03', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Pedagang', '-', 'Kepala Keluarga', '', '', 'Eno', 'Enting', 'Yoyo', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070307700003, 3207070110070256, 'Yoyo', 'Ciamis', '1970-07-03', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Pedagang', '-', 'Kepala Keluarga', '', '', 'Eno', 'Enting', 'Yoyo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070307950002, 3207072410160008, 'Raples Setiawan', 'Ciamis', '1995-07-03', 'Laki-laki', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Kokom Komarudin', 'Tati Maryati', 'Raples Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070308000002, 3207071209070060, 'Alifia Arizki', 'Ciamis', '2000-08-03', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Wawan Setiawan', 'Elis Habibah', 'Wawan Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070308030001, 3207072410070177, 'Dian', 'Ciamis', '2003-08-03', 'Laki-laki', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Atang', 'Eti', 'Atang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1097,9 +1095,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070503880002, 3207071809070523, 'Andi Handoyo', 'Ciamis', '1988-03-05', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Edi', 'Siti Jubaedah', 'Edi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070503880003, 3207071409070542, 'Yana', 'Ciamis', '1988-03-05', 'Laki-laki', 'DUSUN CIMANGLID,RT : 002,RW : 003,Kodepos :46263,Telp :', '002', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Anak', '', '', 'Engkos', 'Inoh', 'Engkos', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070503970001, 3207071809070550, 'Dian Nurdiana', 'Ciamis', '1997-03-05', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tatang Maulana', 'Eti Haryati', 'Tatang Maulana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070503980002, 3207071609070827, 'Iik Ishaki', 'Ciamis', '1998-03-05', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tatang Hendra', 'Entin', 'Tatang Hendra', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070503980002, 3207071609070827, 'Iik Ishaki', 'Ciamis', '1998-03-05', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tatang Hendra', 'Entin', 'Tatang Hendra', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070504070003, 3207072410070170, 'Mulyana Rapas', 'Ciamis', '2007-04-05', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Oman', 'Mamah', 'Oman', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070504070003, 3207072410070170, 'Mulyana Rapas', 'Ciamis', '2007-04-05', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Oman', 'Mamah', 'Oman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070504560001, 3207070110070207, 'Didi Paroga', 'Ciamis', '1956-04-05', 'Laki-laki', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Muid', 'Inoh Mursinah', 'Didi Paroga', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070504640001, 3207072610070022, 'Ade Nurjaman', 'Tasikmalaya', '1964-04-05', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Apandi', 'Ining', 'Ade Nurjaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070504690002, 3207072209080002, 'Jajang', 'Ciamis', '1969-04-05', 'Laki-laki', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Diploma I/II', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Tolib', 'Yoyoh', 'Jajang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1240,9 +1238,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070607490001, 3207071409070621, 'Adang', 'Ciamis', '1949-07-06', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Emi', 'Aah', 'Adang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070607510008, 3207072709070212, 'Juhari', 'Ciamis', '1951-07-06', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Sujatma', 'X', 'Juhari', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070607520001, 3207071209070629, 'Eman Suherman', 'Ciamis', '1952-07-06', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Wiharta', 'Ooh', 'Eman Suherman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070607730002, 3207071209070648, 'Didi', 'Ciamis', '1973-07-06', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Peternakan', '-', 'Kepala Keluarga', '', '', 'Uha', 'Dioh', 'Didi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070607730002, 3207071209070648, 'Didi', 'Ciamis', '1973-07-06', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Peternakan', '-', 'Kepala Keluarga', '', '', 'Uha', 'Dioh', 'Didi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070607740002, 3207071106200006, 'Dahlan', 'Ciamis', '1974-07-06', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Abas', 'Sari', 'Dahlan', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070607740002, 3207071106200006, 'Dahlan', 'Ciamis', '1974-07-06', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Abas', 'Sari', 'Dahlan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070607870002, 3207072510120005, 'Parid', 'Ciamis', '1987-07-06', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Adang', 'Anih', 'Parid', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070607870004, 3207071109070097, 'Dani Supriatna', 'Ciamis', '1987-07-06', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Anak', '', '', 'Didi Komarudin', 'Yayah', 'Didi Komarudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070607940003, 3207070309190003, 'Daris Lutfi', 'Ciamis', '1994-07-06', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Nandi', 'Kokom Komariah', 'Daris Lutfi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1384,9 +1382,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070711070001, 3207072109070044, 'Fahri Rauf Firdaus', 'Ciamis', '2007-11-07', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Dani Handayani', 'Ineu Irawati', 'Dani Handayani', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070711160001, 3207072007080003, 'Zevan Sailendra Setiawan', 'Banjar', '2016-11-07', 'Laki-laki', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Famili Lain', '', '', 'Wawan', 'Enok', 'Wawan Rusmawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070711190001, 3207071504190010, 'Muhamad Kenshi Alfarizqi', 'Ciamis', '2019-11-07', 'Laki-laki', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ade Johan', 'Siti Marhamah', 'Ade Johan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070711590001, 3207072310070073, 'Rohim', 'Ciamis', '1959-11-07', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Kosasih', 'Noki', 'Rohim', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070711590001, 3207072310070073, 'Rohim', 'Ciamis', '1959-11-07', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Kosasih', 'Noki', 'Rohim', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070711680004, 3207071609070819, 'Nurdin', 'Ciamis', '1968-11-07', 'Laki-laki', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Hanapi', 'Uning', 'Nurdin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070711680004, 3207071609070819, 'Nurdin', 'Ciamis', '1968-11-07', 'Laki-laki', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Hanapi', 'Uning', 'Nurdin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070711740001, 3207071309070494, 'Apud', 'Ciamis', '1974-11-07', 'Laki-laki', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Aleh', 'Anang', 'Apud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070711840003, 3207073112150005, 'Rahmat Firmansah', 'Ciamis', '1984-11-07', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Apandi', 'Icih', 'Rahmat Firmansah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070711880002, 3207071209120008, 'Kurnia', 'Ciamis', '1988-11-07', 'Laki-laki', 'DUSUN PAMEKARAN ,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Koni', 'Yayah', 'Kurnia', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1528,9 +1526,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207070902610001, 3207070210070098, 'Oni', 'Ciamis', '1961-02-09', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Wiharta', 'Emung', 'Oni', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070902790002, 3207072009070303, 'Edin', 'Ciamis', '1979-02-09', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Sukinta', 'Ijah', 'Edin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070902920004, 3207070809070472, 'Wana Kuswana', 'Ciamis', '1992-02-09', 'Laki-laki', 'DUSUN CIMAJA,RT : 003,RW : 005,Kodepos :46263,Telp :', '003', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Anak', '', '', 'Uhid', 'Ecin', 'Uhid', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207070903010002, 3207071509070474, 'Pikar', 'Ciamis', '2001-03-09', 'Laki-laki', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Mamat', 'Enung', 'Mamat', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207070903010002, 3207071509070474, 'Pikar', 'Ciamis', '2001-03-09', 'Laki-laki', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Mamat', 'Enung', 'Mamat', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207070903090001, 3207070210070095, 'Ahmad Mubarok', 'Ciamis', '2009-03-09', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Elon', 'Eti', 'Elon', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207070903090001, 3207070210070095, 'Ahmad Mubarok', 'Ciamis', '2009-03-09', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Elon', 'Eti', 'Elon', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070903110001, 3207072809070362, 'Ridwan Nuloh', 'Ciamis', '2011-03-09', 'Laki-laki', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hendi', 'Tati', 'Hendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070903120002, 3207071207120009, 'Ade Galih Permana', 'Ciamis', '2012-03-09', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Prayoga Permana', 'Ade Nurjanah', 'Prayoga Permana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207070903140001, 3207072709070319, 'Naufal Fahri Hernanda', 'Ciamis', '2014-03-09', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Dadang Suryadi', 'Erni Nur Al Fiyani', 'Dadang Suryadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1672,9 +1670,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071007800005, 3207072410110002, 'Iyan Setiawan', 'Ciamis', '1980-07-10', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Diding', 'Yayah', 'Iyan Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071007810002, 3207072709070160, 'Uus', 'Ciamis', '1981-07-10', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Emu', 'Empu', 'Uus', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071007840004, 3207072111080014, 'Acu Suryana', 'Ciamis', '1984-07-10', 'Laki-laki', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', '-', 'Suminah', 'Suminah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071007960005, 3207070203090001, 'Muhamad Arifin', 'Ciamis', '1996-07-10', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTA/Sederajat', 'Wiraswasta', '-', 'Anak', '', '', 'Komar Komarudin', 'Apong Rohayati', 'Komar Komarudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071007960005, 3207070203090001, 'Muhamad Arifin', 'Ciamis', '1996-07-10', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTA/Sederajat', 'Wiraswasta', '-', 'Anak', '', '', 'Komar Komarudin', 'Apong Rohayati', 'Komar Komarudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071008070001, 3207071209070059, 'Risvian Alifa Hakim', 'Ciamis', '2007-08-10', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Enceng Solihin', 'Titin Fatimah', 'Enceng Solihin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071008070001, 3207071209070059, 'Risvian Alifa Hakim', 'Ciamis', '2007-08-10', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Enceng Solihin', 'Titin Fatimah', 'Enceng Solihin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071008090003, 3207070601110010, 'Alvin Fahmi Yudistira', 'Bandung', '2009-08-10', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Yudi Wahyudin', 'Tita Rosita', 'Yudi Wahyudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071008160002, 3207071609130017, 'Rayhan Razifa', 'Ciamis', '2016-08-10', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Maman Sudarman', 'Enung Wida Puspita', 'Maman Sudarman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071008390001, 3207071309070539, 'Handi', 'Ciamis', '1939-08-10', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Islami', 'Murnata', 'Handi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1816,9 +1814,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071201200001, 3207072506190015, 'Muhamad Reza Peratama', 'Ciamis', '2020-01-12', 'Laki-laki', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hendriana', 'Rina Marliana', 'Hendriana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071201510002, 3207073009070007, 'Pidin', 'Ciamis', '1951-01-12', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Cerai Mati', 'Tidak/Belum Sekolah', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Dastomi', 'Robiah', 'Pidin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071201580001, 3207072610070028, 'Muhidin', 'Ciamis', '1958-01-12', 'Laki-laki', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Sadili', 'Omoh', 'Muhidin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071201770003, 3207071609070765, 'Tohiri Rustandi', 'Ciamis', '1977-01-12', 'Laki-laki', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Arip', 'Onah', 'Tohiri Rustandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071201770003, 3207071609070765, 'Tohiri Rustandi', 'Ciamis', '1977-01-12', 'Laki-laki', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Arip', 'Onah', 'Tohiri Rustandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071202100004, 3207071912110006, 'Abas Junaedi', 'Ciamis', '2010-02-12', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Encang', 'Tating Kurnia', 'Encang', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071202100004, 3207071912110006, 'Abas Junaedi', 'Ciamis', '2010-02-12', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Encang', 'Tating Kurnia', 'Encang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071202110002, 3207071609070681, 'Ahmad Rifay', 'Ciamis', '2011-02-12', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Endang', 'Meli Yani', 'Endang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071202110003, 3207072912110001, 'Ahmad Riffay', 'Ciamis', '2011-02-12', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Endang Meli', 'Meliyani', 'Endang Meli', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071202770002, 3207070110070162, 'Beni Candra', 'Ciamis', '1977-02-12', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Tukang Las/Pandai Besi', '-', 'Kepala Keluarga', '', '', 'Apandi', 'Icih', 'Beni Candra', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1960,9 +1958,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071306050001, 3207070909070551, 'Danda Faujan Junior', 'Ciamis', '2005-06-13', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Jenal', 'Ayi Mulyati', 'Jenal', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071306140003, 3207071811150003, 'Galang Pajeh', 'Ciamis', '2014-06-13', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hamdani', 'Ela Julaeha', 'Hamdani', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071307130002, 3207072508090002, 'Muhamad Arkan Sayid Ramadan', 'Ciamis', '2013-07-13', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Didi Hernadi', 'Sopiah', 'Didi Hernadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071307390001, 3207072009070313, 'Harun Arasyid', 'Ciamis', '1939-07-13', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Suba Atmaja', 'Masitoh', 'Harun Arasyid', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071307390001, 3207072009070313, 'Harun Arasyid', 'Ciamis', '1939-07-13', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Suba Atmaja', 'Masitoh', 'Harun Arasyid', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071307960001, 3207070206160002, 'Agung Sopian', 'Ciamis', '1996-07-13', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Tukang Las/Pandai Besi', '-', 'Kepala Keluarga', '', '', 'Asep Somantri', 'Iis Sumiati', 'Agung Sopian', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071307960001, 3207070206160002, 'Agung Sopian', 'Ciamis', '1996-07-13', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Tukang Las/Pandai Besi', '-', 'Kepala Keluarga', '', '', 'Asep Somantri', 'Iis Sumiati', 'Agung Sopian', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071308020003, 3207071109070104, 'Ruchimatussalam', 'Ciamis', '2002-08-13', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Dadang', 'Nunung Siti Widaningsih', 'Dadang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071308100002, 3207070809070582, 'Muhamad Zainudin', 'Ciamis', '2010-08-13', 'Laki-laki', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Pendi', 'Enay', 'Pendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071308110005, 3207071212140007, 'Iqbal Ramdhani', 'Ciamis', '2011-08-13', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Edih Kuskuryana', 'Yusi Rindayanti', 'Edih Kuskuryana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2104,9 +2102,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071507660004, 3207071709070393, 'Wawan', 'Ciamis', '1966-07-15', 'Laki-laki', 'DUSUN DARAWATI,RT : 004,RW : 008,Kodepos :46263,Telp :', '004', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Perdagangan', '-', 'Kepala Keluarga', '', '', 'Wikarta', 'Omoh', 'Wawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071507820004, 3207072609070233, 'Aep Saepudin', 'Ciamis', '1982-07-15', 'Laki-laki', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Kohar', 'Engken', 'Aep Saepudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071507950002, 3207072508160003, 'Hilman Andriyana', 'Ciamis', '1995-07-15', 'Laki-laki', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Yayat Hidayat', 'Esih', 'Hilman Andriyana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071507990002, 3207072309070561, 'Japar Abdul Basari', 'Ciamis', '1999-07-15', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Sabri', 'Eti Suryati', 'Sabri', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071507990002, 3207072309070561, 'Japar Abdul Basari', 'Ciamis', '1999-07-15', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Sabri', 'Eti Suryati', 'Sabri', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071508000002, 3207072609190002, 'Enjang Buana Putra', 'Cirebon', '2000-08-15', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Kanawi', 'Yosepa', 'Ade Supandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071508000002, 3207072609190002, 'Enjang Buana Putra', 'Cirebon', '2000-08-15', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Kanawi', 'Yosepa', 'Ade Supandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071508030002, 3207072009070290, 'Shihabul Muwatib', 'Ciamis', '2003-08-15', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Ahmad Sodik', 'Iim Masah', 'Ahmad Sodik', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071508160003, 3207071004130003, 'Albi Malik Al-Qudsi', 'Ciamis', '2016-08-15', 'Laki-laki', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hamdan Haerudin', 'Riska', 'Hamdan Haerudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071508480001, 3207071309070341, 'Udin Sahrudin', 'Ciamis', '1948-08-15', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Uri', 'Anah', 'Udin Sahrudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2246,9 +2244,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071705050002, 3207072609070335, 'Andi Ripandi', 'Ciamis', '2005-05-17', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ibin', 'Dais Suryani', 'Ibin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071705070001, 3207071809070553, 'Yusup Hidayat', 'Ciamis', '2007-05-17', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Sarip Hidayat', 'Mini', 'Mini', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071705670002, 3207070110070190, 'Momo', 'Ciamis', '1967-05-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Apandi', 'Icih', 'Momo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071705830001, 3207070401110005, 'Yaya Mulyadi', 'Ciamis', '1983-05-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Jayadi', 'Enok', 'Yaya Mulyadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071705830001, 3207070401110005, 'Yaya Mulyadi', 'Ciamis', '1983-05-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Jayadi', 'Enok', 'Yaya Mulyadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071705830004, 3207072103120004, 'Sunarmo', 'Kebumen', '1983-05-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Siswandi', 'Munah', 'Sunarmo', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071705830004, 3207072103120004, 'Sunarmo', 'Kebumen', '1983-05-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Siswandi', 'Munah', 'Sunarmo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071706140002, 3207070909070508, 'Abdul Rosyid', 'Ciamis', '2014-06-17', 'Laki-laki', 'DUSUN CIMAJA,RT : 001,RW : 005,Kodepos :46263,Telp :', '001', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Cucu', '', '', 'Agus Suhendi', 'Wiwi Lestari', 'Karno', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071706660003, 3207070210070061, 'Rusmana', 'Ciamis', '1966-06-17', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Idik', 'Ocoh', 'Rusmana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071706730005, 3207070310200001, 'Asep Dedi Supriadi', 'Ciamis', '1973-06-17', 'Laki-laki', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Saad', 'Uun Herawati Ningsih', 'Asep Dedi Supriadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2389,9 +2387,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207071905150001, 3207070210070072, 'Ataj Mirajul Mu\'Min', 'Ciamis', '2015-05-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Edih Suhendar', 'Amah', 'Edih Suhendar', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071905180002, 3207071202160002, 'Muhammad Wafa Ramdani', 'Ciamis', '2018-05-19', 'Laki-laki', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Zeni', 'Rani Suryani', 'Zeni', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071905890002, 3207072710140002, 'Rikie Sumarna', 'Ciamis', '1989-05-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Novi Sumarna', 'Sumiati', 'Rikie Sumarna', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207071906120002, 3207072709070228, 'Yeyep Saepul Uyun', 'Ciamis', '2012-06-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aban Suryaban', 'Eem', 'Aban Suryaban', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207071906120002, 3207072709070228, 'Yeyep Saepul Uyun', 'Ciamis', '2012-06-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aban Suryaban', 'Eem', 'Aban Suryaban', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207071906200001, 3207072706200018, 'Adhyasta Arga Shaka Syarif', 'Ciamis', '2020-06-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Jajang Saripudin', 'Risma Mulyani', 'Jajang Saripudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207071906200001, 3207072706200018, 'Adhyasta Arga Shaka Syarif', 'Ciamis', '2020-06-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Jajang Saripudin', 'Risma Mulyani', 'Jajang Saripudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071906580001, 3207071809070462, 'Uhem', 'Ciamis', '1958-06-19', 'Laki-laki', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Petani/Pekebun', '-', 'Kepala Keluarga', '', '', 'Toha', 'Iwah', 'Uhem', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071906630001, 3207070310070023, 'Tatang Burhanudin', 'Ciamis', '1963-06-19', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Perangkat Desa', 'B', 'Kepala Keluarga', '', '', 'Sarkosi', 'Saneh', 'Tatang Burhanudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207071906820002, 3207071309070330, 'Tata', 'Ciamis', '1982-06-19', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Perdagangan', '-', 'Anak', '', '', 'Diding', 'Yayah', 'Diding', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2531,9 +2529,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207072106830003, 3207071305090001, 'Lili Sahli', 'Ciamis', '1983-06-21', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Komon', 'Titi', 'Lili Sahli', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072106850002, 3207072912090001, 'Heryana', 'Ciamis', '1985-06-21', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Kepala Keluarga', '', '', 'Hendi', 'Ehot', 'Heryana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072106850003, 3207070405090008, 'Lalan Ramlan', 'Ciamis', '1985-06-21', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Nanang', 'Nonoh', 'Lalan Ramlan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207072106890001, 3207071806130001, 'Misbahudin', 'Ciamis', '1985-12-17', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Abdul Somad', 'Iyus Yuliyah', 'Misbahudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207072106890001, 3207071806130001, 'Misbahudin', 'Ciamis', '1985-12-17', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Abdul Somad', 'Iyus Yuliyah', 'Misbahudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207072106930001, 3207070906200003, 'Ade Aif Sarip Hidayat', 'Ciamis', '1993-06-21', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Kandar', 'Anah', 'Ade Aif Sarip Hidayat', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207072106930001, 3207070906200003, 'Ade Aif Sarip Hidayat', 'Ciamis', '1993-06-21', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Buruh Harian Lepas', '-', 'Kepala Keluarga', '', '', 'Kandar', 'Anah', 'Ade Aif Sarip Hidayat', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072107630002, 3207072909070221, 'Didi Supriadi', 'Ciamis', '1963-07-21', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Harian Lepas', 'B', 'Kepala Keluarga', '', '', 'Sasmita', 'Emping', 'Didi Supriadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072107780001, 3207071509070652, 'Memed', 'Ciamis', '1978-07-21', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Uuh', 'Empu', 'Memed', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072107870002, 3207071604150001, 'Wahyu Herdianto', 'Ciamis', '1987-07-21', 'Laki-laki', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Tukang Las/Pandai Besi', '-', 'Kepala Keluarga', '', '', 'Sumitra', 'Encum', 'Wahyu Herdianto', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2674,9 +2672,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207072312040001, 3207070909070431, 'Hikam Atoiilah', 'Bandung', '2004-12-23', 'Laki-laki', 'DUSUN CIMAJA,RT : 003,RW : 005,Kodepos :46263,Telp :', '003', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Ahi', 'Neni', 'Ahi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072312040003, 3207072709070181, 'Rizal Destian', 'Ciamis', '2004-12-23', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hendra Senjaya', 'Cucu Cahyati', 'Hendra Senjaya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072401140001, 3207071309070366, 'Muhamad Arrafi Saepudin', 'Ciamis', '2014-01-24', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tata Aripin', 'Cocoh', 'Tata Aripin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207072401810001, 3207070403130002, 'Lukmana', 'Panumbangan', '1981-01-24', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Pendi', 'Cicih', 'Lukmana', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207072401810001, 3207070403130002, 'Lukmana', 'Panumbangan', '1981-01-24', 'Laki-laki', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Pendi', 'Cicih', 'Lukmana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207072402060001, 3207072309070597, 'Johan Jamaludin', 'Ciamis', '2006-02-24', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tolib', 'Ani', 'Tolib', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207072402060001, 3207072309070597, 'Johan Jamaludin', 'Ciamis', '2006-02-24', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Tolib', 'Ani', 'Tolib', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072402540001, 3207072709070165, 'Saridi', 'Ciamis', '1954-02-24', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Pedagang', '-', 'Kepala Keluarga', '', '', 'Saldi', 'Murnah', 'Saridi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072402630001, 3207070210070072, 'Edih Suhendar', 'Ciamis', '1963-02-24', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Pedagang', '-', 'Kepala Keluarga', '', '', 'Undi', 'Anah', 'Edih Suhendar', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072403110002, 3207071604090003, 'Muhammad Rifky Pratama', 'Ciamis', '2011-03-24', 'Laki-laki', 'MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Dadang', 'Imas Siti Sa`Idah', 'Dadang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2817,9 +2815,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207072608080005, 3207071509070569, 'Lutfi Nur Agisni', 'Ciamis', '2008-08-26', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Uu Saepudin', 'Dede Mae Maryati', 'Uu Saepudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072608980001, 3207072009070342, 'Ilham Maulana', 'Ciamis', '1998-08-26', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Soma', 'Euis Rohaeti', 'Soma', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072609000002, 3207073009070064, 'Suryana', 'Ciamis', '2000-09-26', 'Laki-laki', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Maman', 'Aah', 'Maman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207072609100001, 3207071503110023, 'Fajar Hamdani', 'Ciamis', '2010-09-26', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Yuyu Wahyu', 'Nina Herlina', 'Yuyu Wahyu', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207072609100001, 3207071503110023, 'Fajar Hamdani', 'Ciamis', '2010-09-26', 'Laki-laki', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Yuyu Wahyu', 'Nina Herlina', 'Yuyu Wahyu', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207072609980001, 3207070110070190, 'Deni Rustandi', 'Ciamis', '1998-09-26', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Momo', 'Isah', 'Momo', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207072609980001, 3207070110070190, 'Deni Rustandi', 'Ciamis', '1998-09-26', 'Laki-laki', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Momo', 'Isah', 'Momo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072609980002, 3207072908160010, 'Cecep Shalahuddin', 'Ciamis', '1998-09-26', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Suparman', 'Siti Khotimah', 'Siti Khotimah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072610160002, 3207070310070030, 'Dika Muhamad Hamdan', 'Ciamis', '2016-10-26', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Jojo', 'Yani Handayani', 'Jojo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072610860001, 3207072402160008, 'Dadan Deni Mulyana', 'Ciamis', '1986-10-26', 'Laki-laki', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Pedagang', '-', 'Kepala Keluarga', '', '', 'Nana Suryana', 'Iyom Suryani', 'Dadan Deni Mulyana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -2958,9 +2956,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207072901730001, 3207072909070233, 'Tatang Rustandi', 'Ciamis', '1973-01-29', 'Laki-laki', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Hamin', 'Cicih', 'Tatang Rustandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072902120003, 3207072410070187, 'Muhammad Mulyana', 'Ciamis', '2012-02-29', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Anas', 'Titi', 'Anas', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072902160001, 3207072709070181, 'Yoghi Al Mahaly', 'Ciamis', '2016-02-29', 'Laki-laki', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hendra Senjaya', 'Cucu Cahyati', 'Hendra Senjaya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207072903130002, 3207073001190016, 'Muhamad Nizan Aripin', 'Ciamis', '2013-03-29', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Agus Nazmudin', 'Neneh Heryanti', 'Agus Nazmudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207072903130002, 3207073001190016, 'Muhamad Nizan Aripin', 'Ciamis', '2013-03-29', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Agus Nazmudin', 'Neneh Heryanti', 'Agus Nazmudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207072903170001, 3207072811160011, 'Muhamad Ali Alfariq', 'Ciamis', '2017-03-29', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Roni Yahya', 'Apipah Pia Paujiah', 'Roni Yahya', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207072903170001, 3207072811160011, 'Muhamad Ali Alfariq', 'Ciamis', '2017-03-29', 'Laki-laki', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Roni Yahya', 'Apipah Pia Paujiah', 'Roni Yahya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072903200001, 3207070201200004, 'Ahmad Basyir Janie Asyabani', 'Ciamis', '2020-03-29', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Jajay Koswara', 'Nia Efrilianti Purbasari', 'Jajay Koswara', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072903720001, 3207071509070600, 'Bakri', 'Ciamis', '1972-03-29', 'Laki-laki', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Wiraswasta', '-', 'Kepala Keluarga', '', '', 'Idin', 'Iim', 'Bakri', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207072903900002, 3207071909110006, 'Adythia Rhamdani', 'Ciamis', '1990-03-29', 'Laki-laki', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Cerai Hidup', 'Diploma I/II', 'Karyawan Swasta', '-', 'Kepala Keluarga', '', '', 'Priatna', 'Cucu Suryati', 'Adythia Rhamdani', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3101,9 +3099,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074101610005, 3207071503110006, 'Een', 'Ciamis', '1961-01-01', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Cerai Hidup', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Sudinta', 'Eha', 'Een', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074101620004, 3207073009070021, 'Anah', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Wiharta', 'Ocih', 'Kandar', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074101620005, 3207070205170004, 'Amay', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Upik', 'Anah', 'Sidik Taryaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074101620009, 3207070110070178, 'Yati', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Mahromi', 'Iming', 'Ahmad Ependi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074101620009, 3207070110070178, 'Yati', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Mahromi', 'Iming', 'Ahmad Ependi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074101620010, 3207072109070038, 'Irus Rusmiati', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Rasupi', 'Suhanah', 'Apud', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074101620010, 3207072109070038, 'Irus Rusmiati', 'Ciamis', '1962-01-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Rasupi', 'Suhanah', 'Apud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074101640005, 3207072809070365, 'Empong Mulyati', 'Ciamis', '1964-01-01', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Pedagang', 'B', 'Kepala Keluarga', '', '', 'Jaeni', 'Ocoh', 'Empong Mulyati', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074101640009, 3207070110070148, 'Ratna', 'Ciamis', '1964-01-01', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Rumanta', 'Umirah', 'Enjang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074101650009, 3207070809070517, 'Iyoh', 'Ciamis', '1965-01-01', 'Perempuan', 'DUSUN CIMAJA,RT : 003,RW : 005,Kodepos :46263,Telp :', '003', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Suminta', 'Encum', 'Iing', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3247,9 +3245,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074107490026, 3207071509070427, 'Emah', 'Ciamis', '1949-07-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Hatomi', 'Iyah', 'Emah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074107490055, 3207072709070226, 'Erah Maryati', 'Ciamis', '1949-07-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Sulaeman', 'Sukini', 'Erah Maryati', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074107490060, 3207070310070011, 'Sari', 'Ciamis', '1949-07-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Dasuki', 'Ating', 'Sari', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074107500044, 3207071309070086, 'Irah', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Wiatma', 'Bioh', 'Irah', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074107500044, 3207071309070086, 'Irah', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Wiatma', 'Bioh', 'Irah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074107500064, 3207071509070604, 'Imi', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tidak/Belum Sekolah', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Marif', 'Enah', 'Imi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074107500064, 3207071509070604, 'Imi', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tidak/Belum Sekolah', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Marif', 'Enah', 'Imi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074107500102, 3207072009180007, 'Nur Hasanah', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Kamsid', 'Sulmi', 'Nur Hasanah', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074107500109, 3207070310070013, 'Engkar', 'Ciamis', '1950-07-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Sarkosi', 'Aneh', 'Engkar', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074107510054, 3207072709070268, 'Mutiah', 'Ciamis', '1951-07-01', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Sukarja', 'Salmi', 'Toyib', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3395,9 +3393,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074109640001, 3207071609070615, 'Imas', 'Ciamis', '1964-09-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Rumanta', 'Maning', 'Aep Saepudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074109950001, 3207071109070104, 'Widi Pertiwi', 'Ciamis', '1995-09-01', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'SLTA/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Dadang', 'Nunung Siti Widaningsih', 'Dadang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074110080001, 3207072809070370, 'Nabila Fitriyani', 'Ciamis', '2008-10-01', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Toni', 'Ela', 'Toni', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074110930002, 3207072410070177, 'Enur', 'Ciamis', '1993-10-01', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Atang', 'Eti', 'Atang', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074110930002, 3207072410070177, 'Enur', 'Ciamis', '1993-10-01', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Atang', 'Eti', 'Atang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074111150002, 3207072708150003, 'Nur Auliya Lestari', 'Ciamis', '2015-11-01', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ence Jajang Nurjaman', 'Ida Parida', 'Ence Jajang Nurjaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074111150002, 3207072708150003, 'Nur Auliya Lestari', 'Ciamis', '2015-11-01', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ence Jajang Nurjaman', 'Ida Parida', 'Ence Jajang Nurjaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074111160001, 3207072811160013, 'Alesha Zahra', 'Ciamis', '2016-11-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Anggi Gumilang', 'Yuni Sopiah', 'Anggi Gumilang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074111600002, 3207071803110002, 'Cicih', 'Ciamis', '1960-11-01', 'Perempuan', 'dusun PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Wiharja', 'Emot', 'Cicih', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074112060001, 3207071409070531, 'Ditari Nur\'Aeni', 'Ciamis', '2006-12-01', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Nurdin', 'Enes Trisnawati', 'Nurdin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3540,9 +3538,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074307570005, 3207072009070329, 'Nanah Nurhasanah', 'Ciamis', '1957-07-03', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Noerin', 'Ocoh', 'Oyo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074307710004, 3207070210070099, 'Enok Enah Nurjanah', 'Ciamis', '1971-07-03', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Tukang Jahit', '-', 'Istri', '', '', 'Suherman', 'Esih', 'Ruspendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074307750002, 3207071109070018, 'Diah', 'Tasikmalaya', '1975-07-03', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Harja', 'Muryati', 'Rayun Pudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074307780002, 3207071809070475, 'Reni Marlina', 'Ciamis', '1978-07-03', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Nana Mulyana', 'Ocoh', 'Iwan Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074307780002, 3207071809070475, 'Reni Marlina', 'Ciamis', '1978-07-03', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Nana Mulyana', 'Ocoh', 'Iwan Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074307790001, 3207071909160010, 'Mimin Rusmina', 'Ciamis', '1979-07-03', 'Perempuan', 'DUSUN DARAWATI,RT : 004,RW : 008,Kodepos :46263,Telp :', '004', '008', 'Darawati', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Aminta', 'Anih', 'Mimin Rusmina', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074307790001, 3207071909160010, 'Mimin Rusmina', 'Ciamis', '1979-07-03', 'Perempuan', 'DUSUN DARAWATI,RT : 004,RW : 008,Kodepos :46263,Telp :', '004', '008', 'Darawati', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Aminta', 'Anih', 'Mimin Rusmina', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074307820004, 3207071609070605, 'Reni', 'Ciamis', '1982-07-03', 'Perempuan', 'DUSUN CIMANGLID,RT : 002,RW : 003,Kodepos :46263,Telp :', '002', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Jenal', 'Eti', 'Ujang Oleh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074307830001, 3207070709110006, 'Herawati', 'Ciamis', '1983-07-03', 'Perempuan', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Daman', 'Anah', 'Aan Risman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074307830002, 3207070805180001, 'Teti Rahmawati', 'Ciamis', '1983-07-03', 'Perempuan', 'DUSUN. NANGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sumitra', 'Ining', 'Agus Salim', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3685,9 +3683,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074503520001, 3207072902160001, 'Cicih', 'Ciamis', '1952-03-05', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Toha', 'Inoh', 'Cicih', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074503540001, 3207070809070440, 'Icih', 'Ciamis', '1954-03-05', 'Perempuan', 'DUSUN CIMAJA,RT : 003,RW : 005,Kodepos :46263,Telp :', '003', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Wiharna', 'Tinah', 'Anda', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074503620004, 3207070310070009, 'Esih', 'Ciamis', '1962-03-05', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Haromi', 'Kayah', 'Sunarya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074503680006, 3207071909070476, 'Cicih', 'Ciamis', '1968-03-05', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Alimi', 'Esih', 'Idris', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074503680006, 3207071909070476, 'Cicih', 'Ciamis', '1968-03-05', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Alimi', 'Esih', 'Idris', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074503680008, 3207070310070034, 'Umi', 'Ciamis', '1968-03-05', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sumitra', 'Aah', 'Abidin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074503680008, 3207070310070034, 'Umi', 'Ciamis', '1968-03-05', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sumitra', 'Aah', 'Abidin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074503690004, 3207072009070284, 'Erah Rahmaniah', 'Ciamis', '1969-03-05', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sukinta', 'Enah', 'Akib', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074503710003, 3207072909070230, 'Nonok', 'Ciamis', '1971-03-05', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sumarna', 'Imi', 'Ili Somantri', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074503780003, 3207072909070227, 'Juju Julaeha', 'Ciamis', '1978-03-05', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Emed', 'Ook', 'Tata', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3830,9 +3828,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074605040001, 3207070809070582, 'Lutfi Lutfia', 'Ciamis', '2004-05-06', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Pendi', 'Enay', 'Pendi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074605370001, 3207071706130001, 'Sudini', 'Ciamis', '1937-05-06', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Dastami', 'Rabiah', 'Sudini', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074605480001, 3207072709070184, 'Kayah', 'Ciamis', '1948-05-06', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Dasuki', 'Mamah', 'Adul', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074605540001, 3207070807190008, 'Enok', 'Ciamis', '1954-05-06', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Ujo', 'Ejom', 'Enok', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074605540001, 3207070807190008, 'Enok', 'Ciamis', '1954-05-06', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Ujo', 'Ejom', 'Enok', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074605640001, 3207071209070063, 'Nani Sumarni', 'Ciamis', '1964-05-06', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Pegawai Negeri Sipil', '-', 'Istri', '', '', 'Sanirman', 'Natman', 'Tatang Hermawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074605640001, 3207071209070063, 'Nani Sumarni', 'Ciamis', '1964-05-06', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Diploma IV/Strata I', 'Pegawai Negeri Sipil', '-', 'Istri', '', '', 'Sanirman', 'Natman', 'Tatang Hermawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074605680003, 3207070807100001, 'Nining Ratningsih', 'Ciamis', '1968-05-06', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Udin', 'Uti', 'Wawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074605720001, 3207071809070553, 'Mini', 'Ciamis', '1972-05-06', 'Perempuan', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Jumli', 'Eha', 'Mini', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074605720003, 3207072508090002, 'Sopiah', 'Cianjur', '1972-05-06', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Solihin', 'Yoyoh', 'Didi Hernadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3975,9 +3973,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074707890005, 3207071101110005, 'Dede Jamilah', 'Ciamis', '1989-07-07', 'Perempuan', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Kokom Komarudin', 'Tati Maryati', 'Aep Saepudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074707900006, 3207072212090001, 'Ooy Rosita', 'Ciamis', '1990-07-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 007,RW : 004,Kodepos :46263,Telp :', '007', '004', 'Cimanglid', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', 'B', 'Istri', '', '', 'Hengki', 'Iim', 'Iwan Setiawan Nugraha', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074707920004, 3207070208120002, 'Indri', 'Bogor', '1992-07-07', 'Perempuan', 'DUSUN CIMAJA,RT : 003,RW : 005,Kodepos :46263,Telp :', '003', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Emin', 'Onyi', 'A. Nurdin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074707930004, 3207071003110014, 'Siti Nurjanah', 'Ciamis', '1993-07-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Istri', '', '', 'Engkos', 'Juju', 'Oman', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074707930004, 3207071003110014, 'Siti Nurjanah', 'Ciamis', '1993-07-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Istri', '', '', 'Engkos', 'Juju', 'Oman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074708010003, 3207072410070143, 'Siti Nuralpiah', 'Ciamis', '2001-08-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Abib Suhanda', 'Iboh Suarsih', 'Abib Suhanda', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074708010003, 3207072410070143, 'Siti Nuralpiah', 'Ciamis', '2001-08-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Abib Suhanda', 'Iboh Suarsih', 'Abib Suhanda', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074708160001, 3207070310070018, 'Anggita Hapizah Putri', 'Ciamis', '2016-08-07', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ujang Soma Saputra', 'Tika Rahmawati', 'Ujang Soma Saputra', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074708540001, 3207071003110079, 'Ooh', 'Ciamis', '1954-08-07', 'Perempuan', 'DUSUN CIMANGLID,RT : 007,RW : 007,Kodepos :0,Telp :', '007', '007', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Winata', 'Ami', 'Ooh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074708560003, 3207070110070231, 'Ikah', 'Ciamis', '1956-08-07', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Suhandi', 'Onoh', 'Encu Samsu', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4120,9 +4118,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207074901640001, 3207070110070225, 'Mamah', 'Ciamis', '1964-01-09', 'Perempuan', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ajum', 'Iti', 'Herya', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074901690001, 3207071909070344, 'Mimi', 'Ciamis', '1969-01-09', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Kosim', 'Emor', 'Memed Suryadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074901740002, 3207072309070624, 'Onah', 'Tasikmalaya', '1974-01-09', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Kawin', 'Akademi/Diploma III/S. Muda', 'Pegawai Negeri Sipil', 'A', 'Istri', '', '', 'Nana', 'Entik', 'Dadang Jajat', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207074901790001, 3207070310070027, 'Yoyoh Siti Rokayah', 'Ciamis', '1979-01-09', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Oni', 'Onih', 'Elan Suherlan', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207074901790001, 3207070310070027, 'Yoyoh Siti Rokayah', 'Ciamis', '1979-01-09', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Oni', 'Onih', 'Elan Suherlan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207074902010002, 3207071809070535, 'Fitriani', 'Ciamis', '2001-02-09', 'Perempuan', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Suryana', 'Juju', 'Suryana', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207074902010002, 3207071809070535, 'Fitriani', 'Ciamis', '2001-02-09', 'Perempuan', 'DUSUN DARAWATI,RT : 002,RW : 008,Kodepos :46263,Telp :', '002', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Suryana', 'Juju', 'Suryana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074902090002, 3207070208180008, 'Marini Nuryani', 'Ciamis', '2009-02-09', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Nana Setiawan', 'Mimi Nuraminah', 'Nana Setiawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074902520001, 3207070701160004, 'Enih', 'Ciamis', '1952-02-09', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Buruh Tani/Perkebunan', '-', 'Kepala Keluarga', '', '', 'Sunarta', 'Enah', 'Enih', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207074902930001, 3207071509070491, 'Sridona', 'Ciamis', '1993-02-09', 'Perempuan', 'DUSUN CIMANGLID,RT : 004,RW : 003,Kodepos :46263,Telp :', '004', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'SLTP/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Amin Hidayat', 'Oom', 'Amin Hidayat', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4264,9 +4262,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075006800001, 3207070909070325, 'Ratih Ratnasari', 'Ciamis', '1980-06-10', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Hamid', 'Ttiting', 'Ero Suhara', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075006960001, 3207072710140002, 'Nining Maida', 'Ciamis', '1996-06-10', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Holil', 'Esih', 'Rikie Sumarna', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075006990003, 3207071509070589, 'Ipah R', 'Ciamis', '1999-06-10', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ibin', 'Titing', 'Titing', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207075007000003, 3207073008180012, 'Ikeu Pujar Wati', 'Ciamis', '2000-07-10', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Ase Rohendi', 'Sari Herayani', 'Yudi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207075007000003, 3207073008180012, 'Ikeu Pujar Wati', 'Ciamis', '2000-07-10', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Ase Rohendi', 'Sari Herayani', 'Yudi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207075007120003, 3207070103130003, 'Bunga Salsabila', 'Tasikmalaya', '2012-07-10', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aman Suryaman', 'Tini Kartini', 'Aman Suryaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207075007120003, 3207070103130003, 'Bunga Salsabila', 'Tasikmalaya', '2012-07-10', 'Perempuan', 'DUSUN NANGGELENG,RT : 003,RW : 009,Kodepos :46263,Telp :', '003', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aman Suryaman', 'Tini Kartini', 'Aman Suryaman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075007130001, 3207071104120003, 'Nurul Aqila Az-Zahra', 'Ciamis', '2013-07-10', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Ade Yana Herdiana', 'Pitri Patria', 'Ade Yana Herdiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075007570001, 3207072307200006, 'Esih', 'Ciamis', '1957-07-10', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Cerai Mati', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Kepala Keluarga', '', '', 'Sarkosih', 'Sati', 'Esih', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075007700004, 3207070611190003, 'Rina Rosita', 'Ciamis', '1970-07-10', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Cerai Mati', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Ewong', 'Cicih', 'Rina Rosita', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4409,9 +4407,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075112660001, 3207072302160002, 'Eti Sumiyati', 'Ciamis', '1966-12-11', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Mahromi', 'Iyoh', 'Eti Sumiyati', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075112690001, 3207071209070042, 'Iis', 'Banten', '1969-12-11', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', 'AB', 'Istri', '', '', 'Darmo', 'Saibah', 'Arul', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075112690003, 3207072109070050, 'A`Ah Ariyah', 'Tasikmalaya', '1969-12-11', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Emed', 'Erah', 'Endang Ondi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207075112700002, 3207071909070455, 'Kona`Ah', 'Ciamis', '1970-12-11', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Sanropi', 'Onoh', 'Rohimat Nurhayana', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207075112700002, 3207071909070455, 'Kona`Ah', 'Ciamis', '1970-12-11', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Sanropi', 'Onoh', 'Rohimat Nurhayana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207075112790001, 3207070611090003, 'Yeyet', 'Ciamis', '1979-12-11', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Apud', 'Atikah', 'Uja Jaelani', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207075112790001, 3207070611090003, 'Yeyet', 'Ciamis', '1979-12-11', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Apud', 'Atikah', 'Uja Jaelani', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075112810004, 3207072909070226, 'Tika Sumartini', 'Tasikmalaya', '1981-12-11', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Lili', 'Iloh', 'Yaya Taryadi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075112880002, 3207071504180004, 'Yuyun Yuningsih', 'Ciamis', '1988-12-11', 'Perempuan', 'DUSUN LIMUS AGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Kandar', 'Anah', 'Yuyun Yuningsih', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075201190001, 3207071001170001, 'Bilqis Sugihantari', 'Ciamis', '2019-01-12', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Hadi Sepliana', 'Yulia Sofiah', 'Hadi Sepliana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4553,9 +4551,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075308820002, 3207072909070214, 'Imas Masturoh', 'Ciamis', '1982-08-13', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Wahyo', 'Yayah', 'Handi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075308990005, 3207070110070247, 'Melinda Agustin', 'Ciamis', '1999-08-13', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Momon', 'Euis Nurlaela', 'Momon', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075309020001, 3207070501110010, 'Natasya Zahra Hapisa', 'Ciamis', '2002-09-13', 'Perempuan', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Yuyu Wahyudin', 'Sumiati', 'Yuyu Wahyudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207075309180002, 3207071809070469, 'Lelita Nurfauziah', 'Ciamis', '2018-09-13', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Samsu', 'Yati', 'Samsu', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207075309180002, 3207071809070469, 'Lelita Nurfauziah', 'Ciamis', '2018-09-13', 'Perempuan', 'DUSUN DARAWATI,RT : 003,RW : 008,Kodepos :46263,Telp :', '003', '008', 'Darawati', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Samsu', 'Yati', 'Samsu', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207075309600001, 3207072801210005, 'Nonoh', 'Ciamis', '1960-09-13', 'Perempuan', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Suhaeri', 'Aah', 'Nonoh', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207075309600001, 3207072801210005, 'Nonoh', 'Ciamis', '1960-09-13', 'Perempuan', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Suhaeri', 'Aah', 'Nonoh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075309720002, 3207072410070199, 'Mutjayanah', 'Ciamis', '1972-09-13', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Jais', 'Homsatun', 'Nana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075310110002, 3207070803190002, 'Zahira Kamiliya', 'Ciamis', '2011-10-13', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 002,RW : 006,Kodepos :46263,Telp :', '002', '006', 'Limusagung', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Budiman Yunus', 'Ai Suryati', 'Hilman Abdulnazir', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075310600001, 3207070110070210, 'Titi', 'Ciamis', '1960-10-13', 'Perempuan', 'DUSUN NANGGELENG,RT : 001,RW : 009,Kodepos :46263,Telp :', '001', '009', 'Nanggeleng', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sanuhri', 'Suki', 'Mulyono', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4697,9 +4695,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075507780003, 3207071708110001, 'Reni Lusita', 'Ciamis', '1978-06-15', 'Perempuan', 'DUSUN NANGGELENG,RT : 004,RW : 009,Kodepos :46263,Telp :', '004', '009', 'Nanggeleng', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ikin', 'Yoyoh', 'Cucu Kurniawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075507810003, 3207070901090006, 'Kiki Rukiah', 'Garut', '1981-07-15', 'Perempuan', 'CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Engkim', 'Empong', 'Wawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075508090002, 3207071607080010, 'Zahra Annisa Fitri', 'Ciamis', '2009-08-15', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 001,RW : 007,Kodepos :46263,Telp :', '001', '007', 'Mangunjaya', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Oding', 'Juju Juwita', 'Oding', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207075508100004, 3207072609070294, 'Suci Lestari Ramadani', 'Ciamis', '2010-08-15', 'Perempuan', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Enjang Rohadin', 'Pitri Mulyani', 'Enjang Rohadin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207075508100004, 3207072609070294, 'Suci Lestari Ramadani', 'Ciamis', '2010-08-15', 'Perempuan', 'DUSUN NANGGELENG,RT : 002,RW : 009,Kodepos :46263,Telp :', '002', '009', 'Nanggeleng', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Enjang Rohadin', 'Pitri Mulyani', 'Enjang Rohadin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207075508600001, 3207071009070738, 'Dede', 'Ciamis', '1960-08-15', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Tukang Jahit', '-', 'Kepala Keluarga', '', '', 'Sukmaja', 'Oom', 'Dede', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207075508600001, 3207071009070738, 'Dede', 'Ciamis', '1960-08-15', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Tukang Jahit', '-', 'Kepala Keluarga', '', '', 'Sukmaja', 'Oom', 'Dede', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075508690003, 3207072009070287, 'Tutin', 'Ciamis', '1969-08-15', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Maedi', 'Ikah', 'Apay', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075508730005, 3207070311080006, 'Eni Suryani', 'Ciamis', '1973-08-15', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 001,Kodepos :46263,Telp :', '002', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ori', 'Enti', 'Elon', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075508750003, 3207072410070170, 'Mamah', 'Ciamis', '1975-08-15', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ikin', 'Erum', 'Oman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4840,9 +4838,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075708170001, 3207071910170001, 'Merisa Diana Agustin', 'Ciamis', '2014-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 002,Kodepos :46263,Telp :', '001', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Dian Herdiana', 'Maya Risama', 'Dian Herdiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075708750002, 3207071509070668, 'Iis', 'Ciamis', '1975-08-17', 'Perempuan', 'DUSUN CIMANGLID,RT : 003,RW : 003,Kodepos :46263,Telp :', '003', '003', 'Cimanglid', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Komar', 'Enah', 'Jeje Sutisna', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075708760005, 3207072009070325, 'Tita Rosita', 'Ciamis', '1976-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Mengurus Rumah Tangga', 'AB', 'Istri', '', '', 'Usman Ismail', 'Siti Aisyah', 'Nur Arifin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207075708780002, 3207070110070247, 'Euis Nurlaela', 'Ciamis', '1978-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ahi', 'Ikah', 'Momon', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207075708780002, 3207070110070247, 'Euis Nurlaela', 'Ciamis', '1978-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Ahi', 'Ikah', 'Momon', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207075708810004, 3207070302090002, 'Ita', 'Ciamis', '1981-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Muhidin', 'Ade Sumiati', 'Jajang', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207075708810004, 3207070302090002, 'Ita', 'Ciamis', '1981-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Muhidin', 'Ade Sumiati', 'Jajang', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075708880001, 3207070310070015, 'Irah Saptirah', 'Ciamis', '1988-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 002,Kodepos :46263,Telp :', '004', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', 'O', 'Istri', '', '', 'Daman', 'Icih', 'Toto', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075708890005, 3207071305090001, 'Yuyun Yuningsih', 'Tasikmalaya', '1989-08-17', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 001,Kodepos :46263,Telp :', '003', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Atin', 'Maah', 'Lili Sahli', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207075708890006, 3207071610090005, 'Enur Nurjanah', 'Ciamis', '1989-08-17', 'Perempuan', 'DUSUN MANGUNJAYA,RT : 002,RW : 007,Kodepos :46263,Telp :', '002', '007', 'Mangunjaya', 'Islam', 'Kawin', 'SLTP/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Pandi', 'Erat', 'Ales', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4983,9 +4981,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207075912970001, 3207070809070568, 'Titin Patimah', 'Ciamis', '1997-12-19', 'Perempuan', 'DUSUN CIMAJA,RT : 002,RW : 005,Kodepos :46263,Telp :', '002', '005', 'Cimaja', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Aos', 'Oneng', 'Aos', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076001010003, 3207072009070346, 'Sopiah', 'Ciamis', '2001-01-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Uje Jaenudin', 'Cicih', 'Uje Jaenudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076001050002, 3207071309070533, 'Rosita Setiawati', 'Ciamis', '2005-01-20', 'Perempuan', 'DUSUN CIMANGLID,RT : 005,RW : 004,Kodepos :46263,Telp :', '005', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Wawan Rahmawan', 'Teti', 'Wawan Rahmawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207076001090001, 3207070205080002, 'Angel Zahrani', 'Ciamis', '2009-01-20', 'Perempuan', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Didi Juandi', 'Ema Rusmiati', 'Didi Juandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207076001090001, 3207070205080002, 'Angel Zahrani', 'Ciamis', '2009-01-20', 'Perempuan', 'DUSUN CIMANGLID,RT : 006,RW : 004,Kodepos :46263,Telp :', '006', '004', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Didi Juandi', 'Ema Rusmiati', 'Didi Juandi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207076001790001, 3207072709070224, 'Tini Sumarni', 'Ciamis', '1979-01-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Usup', 'Oyon', 'Holiludin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207076001790001, 3207072709070224, 'Tini Sumarni', 'Ciamis', '1979-01-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Usup', 'Oyon', 'Holiludin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076001930002, 3207072709070162, 'Noneng Kartini', 'Ciamis', '1993-01-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Kawin', 'SLTA/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Aman', 'Sutiah', 'Apud Mahpudin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076002090001, 3207072709070196, 'Nurul Halmalia Putri', 'Ciamis', '2009-02-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 002,RW : 002,Kodepos :46263,Telp :', '002', '002', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Wawan Gunawan', 'Titin Surtini', 'Wawan Gunawan', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076002530003, 3207070903200003, 'Anoh', 'Ciamis', '1953-02-20', 'Perempuan', 'DUSUN PAMEKARAN,RT : 003,RW : 002,Kodepos :46263,Telp :', '003', '002', 'Pamekaran', 'Islam', 'Cerai Mati', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Kepala Keluarga', '', '', 'Wikarta', 'Erum', 'Anoh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -5126,9 +5124,9 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 (3207076204640001, 3207072009070342, 'Euis Rohaeti', 'Ciamis', '1964-04-22', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Karhi', 'Epon', 'Soma', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076204850003, 3207072901190009, 'Rita Restiana', 'Ciamis', '1985-04-22', 'Perempuan', 'DUSUN LIMUSAGUNG,RT : 001,RW : 006,Kodepos :46263,Telp :', '001', '006', 'Limusagung', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sujana', 'Ikah Atikah', 'Wildan Herdiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076204970003, 3207070110070251, 'Atik Sartika', 'Ciamis', '1997-04-22', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'SLTA/Sederajat', 'Belum/Tidak Bekerja', 'O', 'Anak', '', '', 'Odi Rodiana', 'Enok Sani', 'Odi Rodiana', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3207076205060001, 3207070110070255, 'Maria Maatu Saadah', 'Ciamis', '2006-05-22', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Hendrik', 'Neli Anelia', 'Hendrik', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3207076205060001, 3207070110070255, 'Maria Maatu Saadah', 'Ciamis', '2006-05-22', 'Perempuan', 'DUSUN PAMEKARAN,RT : 004,RW : 001,Kodepos :46263,Telp :', '004', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tidak Tamat SD/Sederajat', 'Pelajar/Mahasiswa', '-', 'Anak', '', '', 'Hendrik', 'Neli Anelia', 'Hendrik', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3207076205810002, 3207071909070404, 'Herni', 'Ciamis', '1981-05-22', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Didin', 'Esih', 'Aep Saepuloh', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `dusun`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `golongan_darah`, `shdk`, `bantuan`, `kis`, `ayah`, `ibu`, `kepala_keluarga`, `created_at`, `updated_at`) VALUES
-(3207076205810002, 3207071909070404, 'Herni', 'Ciamis', '1981-05-22', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Didin', 'Esih', 'Aep Saepuloh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076205950002, 3207071806190009, 'Elin Ratna Sari', 'Lampung', '1995-05-22', 'Perempuan', 'DUSUN DARAWATI,RT : 001,RW : 008,Kodepos :46263,Telp :', '001', '008', 'Darawati', 'Islam', 'Kawin', 'Tamat SD/Sederajat', 'Mengurus Rumah Tangga', '-', 'Istri', '', '', 'Sasmita', 'Kartini', 'Suhendra', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076206050002, 3207072009070333, 'Sarah Nur Anisa', 'Tasikmalaya', '2005-06-22', 'Perempuan', 'DUSUN PAMEKARAN,RT : 001,RW : 001,Kodepos :46263,Telp :', '001', '001', 'Pamekaran', 'Islam', 'Belum Kawin', 'Tamat SD/Sederajat', 'Pelajar/Mahasiswa', 'O', 'Anak', '', '', 'Otoh', 'Rohmah Rahmawati', 'Otoh', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3207076206050003, 3207071609070670, 'Siti Halimatul Sadiah', 'Ciamis', '2005-06-22', 'Perempuan', 'DUSUN CIMANGLID,RT : 001,RW : 003,Kodepos :46263,Telp :', '001', '003', 'Cimanglid', 'Islam', 'Belum Kawin', 'Tidak/Belum Sekolah', 'Belum/Tidak Bekerja', '-', 'Anak', '', '', 'Budiman', 'Oyah', 'Budiman', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -5807,18 +5805,18 @@ INSERT INTO `t_penduduk` (`nik`, `no_kk`, `nama`, `tempat_lahir`, `tanggal_lahir
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_sejarah`
+-- Table structure for table `t_sejarah`
 --
 
 CREATE TABLE `t_sejarah` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `content` text NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_sejarah`
+-- Dumping data for table `t_sejarah`
 --
 
 INSERT INTO `t_sejarah` (`id`, `content`, `created_at`, `updated_at`) VALUES
@@ -5827,23 +5825,23 @@ INSERT INTO `t_sejarah` (`id`, `content`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_users`
+-- Table structure for table `t_users`
 --
 
 CREATE TABLE `t_users` (
-  `id_user` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `id_user` int UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_users`
+-- Dumping data for table `t_users`
 --
 
 INSERT INTO `t_users` (`id_user`, `name`, `level`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -5859,19 +5857,19 @@ INSERT INTO `t_users` (`id_user`, `name`, `level`, `email`, `email_verified_at`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `t_visi_misi`
+-- Table structure for table `t_visi_misi`
 --
 
 CREATE TABLE `t_visi_misi` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `visi` varchar(255) NOT NULL,
-  `misi` text NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `visi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `misi` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `t_visi_misi`
+-- Dumping data for table `t_visi_misi`
 --
 
 INSERT INTO `t_visi_misi` (`id`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
@@ -5882,26 +5880,26 @@ INSERT INTO `t_visi_misi` (`id`, `visi`, `misi`, `created_at`, `updated_at`) VAL
 --
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_reset_tokens`
+-- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indeks untuk tabel `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -5909,149 +5907,149 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indeks untuk tabel `t_bantuan`
+-- Indexes for table `t_bantuan`
 --
 ALTER TABLE `t_bantuan`
   ADD PRIMARY KEY (`id_bantuan`);
 
 --
--- Indeks untuk tabel `t_berita`
+-- Indexes for table `t_berita`
 --
 ALTER TABLE `t_berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `t_disabilitas`
+-- Indexes for table `t_disabilitas`
 --
 ALTER TABLE `t_disabilitas`
   ADD PRIMARY KEY (`id_disabilitas`),
   ADD KEY `nik` (`nik`);
 
 --
--- Indeks untuk tabel `t_kis`
+-- Indexes for table `t_kis`
 --
 ALTER TABLE `t_kis`
   ADD PRIMARY KEY (`id_kis`);
 
 --
--- Indeks untuk tabel `t_lapakdesa`
+-- Indexes for table `t_lapakdesa`
 --
 ALTER TABLE `t_lapakdesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `t_pekerjaan`
+-- Indexes for table `t_pekerjaan`
 --
 ALTER TABLE `t_pekerjaan`
   ADD PRIMARY KEY (`id_pekerjaan`);
 
 --
--- Indeks untuk tabel `t_penduduk`
+-- Indexes for table `t_penduduk`
 --
 ALTER TABLE `t_penduduk`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indeks untuk tabel `t_sejarah`
+-- Indexes for table `t_sejarah`
 --
 ALTER TABLE `t_sejarah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `t_users`
+-- Indexes for table `t_users`
 --
 ALTER TABLE `t_users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `t_users_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `t_visi_misi`
+-- Indexes for table `t_visi_misi`
 --
 ALTER TABLE `t_visi_misi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `t_bantuan`
+-- AUTO_INCREMENT for table `t_bantuan`
 --
 ALTER TABLE `t_bantuan`
-  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_bantuan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `t_berita`
+-- AUTO_INCREMENT for table `t_berita`
 --
 ALTER TABLE `t_berita`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `t_disabilitas`
+-- AUTO_INCREMENT for table `t_disabilitas`
 --
 ALTER TABLE `t_disabilitas`
-  MODIFY `id_disabilitas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_disabilitas` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `t_kis`
+-- AUTO_INCREMENT for table `t_kis`
 --
 ALTER TABLE `t_kis`
-  MODIFY `id_kis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `t_lapakdesa`
+-- AUTO_INCREMENT for table `t_lapakdesa`
 --
 ALTER TABLE `t_lapakdesa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `t_pekerjaan`
+-- AUTO_INCREMENT for table `t_pekerjaan`
 --
 ALTER TABLE `t_pekerjaan`
-  MODIFY `id_pekerjaan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id_pekerjaan` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT untuk tabel `t_sejarah`
+-- AUTO_INCREMENT for table `t_sejarah`
 --
 ALTER TABLE `t_sejarah`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `t_users`
+-- AUTO_INCREMENT for table `t_users`
 --
 ALTER TABLE `t_users`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `t_visi_misi`
+-- AUTO_INCREMENT for table `t_visi_misi`
 --
 ALTER TABLE `t_visi_misi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `t_disabilitas`
+-- Constraints for table `t_disabilitas`
 --
 ALTER TABLE `t_disabilitas`
   ADD CONSTRAINT `t_disabilitas_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `t_penduduk` (`nik`);

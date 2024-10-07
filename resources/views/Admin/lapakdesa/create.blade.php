@@ -63,26 +63,53 @@
                                                 @enderror
                                             </div>
                                         </div>
+
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="deskripsi">Deskripsi</label>
-                                                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi"
-                                                    placeholder="Deskripsi" rows="4" required>{{ old('deskripsi') }}</textarea>
-                                                @error('deskripsi')
+                                                <label for="mitra">Mitra</label>
+                                                <input type="text" name="mitra"
+                                                    class="form-control @error('mitra') is-invalid @enderror" id="mitra"
+                                                    placeholder="Mitra" value="{{ old('mitra') }}"
+                                                    style="text-transform: uppercase" required>
+                                                @error('mitra')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="kategori">Kategori</label>
+                                                <select name="kategori"
+                                                    class="form-control @error('kategori') is-invalid @enderror"
+                                                    id="kategori" required>
+                                                    <option value="" disabled selected>Pilih Kategori</option>
+                                                    <option value="Makanan"
+                                                        {{ old('kategori') == 'Makanan' ? 'selected' : '' }}>
+                                                        Makanan</option>
+                                                    <option value="Pakaian"
+                                                        {{ old('kategori') == 'Pakaian' ? 'selected' : '' }}>Pakaian
+                                                    </option>
+                                                    <option value="Kerajinan"
+                                                        {{ old('kategori') == 'Kerajinan' ? 'selected' : '' }}>Kerajinan
+                                                    </option>
+                                                    <option value="Hasil Bumi"
+                                                        {{ old('kategori') == 'Hasil Bumi' ? 'selected' : '' }}>
+                                                        Hasil Bumi</option>
+                                                </select>
+                                                @error('kategori')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label for="mitra">Mitra</label>
-                                                <input type="text" name="mitra"
-                                                    class="form-control @error('mitra') is-invalid @enderror" id="mitra"
-                                                    placeholder="Mitra" value="{{ old('mitra') }}" required>
-                                                @error('mitra')
+                                                <label for="deskripsi">Deskripsi</label>
+                                                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi"
+                                                    placeholder="Deskripsi" rows="4" required>{{ old('deskripsi') }}</textarea>
+                                                @error('deskripsi')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

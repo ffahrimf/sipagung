@@ -353,9 +353,11 @@
                                                 <select name="pekerjaan" id="pekerjaan"
                                                     class="form-control @error('pekerjaan') is-invalid @enderror"
                                                     required>
-                                                    <option value="" disabled selected>Pilih Pekerjaan</option>
+                                                    <option value="" disabled
+                                                        {{ old('pekerjaan', $penduduk->pekerjaan) ? '' : 'selected' }}>
+                                                        Pilih Pekerjaan</option>
                                                     @foreach ($pekerjaanList as $item)
-                                                        <option value="{{ $item->id_pekerjaan }}"
+                                                        <option value="{{ $item->nama }}"
                                                             {{ old('pekerjaan', $penduduk->pekerjaan) == $item->nama ? 'selected' : '' }}>
                                                             {{ $item->nama }}
                                                         </option>
@@ -366,8 +368,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-
-
 
                                     </div>
 
@@ -446,13 +446,14 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label for="bantuan">Bantuan Sosial</label>
+                                                <label for="bantuan">Bantuan</label>
                                                 <select name="bantuan" id="bantuan"
-                                                    class="form-control @error('bantuan') is-invalid @enderror"
-                                                    required>
-                                                    <option value="" disabled selected>Pilih Bantuan</option>
+                                                    class="form-control @error('bantuan') is-invalid @enderror" required>
+                                                    <option value="" disabled
+                                                        {{ old('bantuan', $penduduk->bantuan) ? '' : 'selected' }}>
+                                                        Pilih Bantuan</option>
                                                     @foreach ($bantuanList as $item)
-                                                        <option value="{{ $item->id_bantuan }}"
+                                                        <option value="{{ $item->jenis }}"
                                                             {{ old('bantuan', $penduduk->bantuan) == $item->jenis ? 'selected' : '' }}>
                                                             {{ $item->jenis }}
                                                         </option>
@@ -467,11 +468,12 @@
                                             <div class="form-group">
                                                 <label for="kis">JKN-KIS</label>
                                                 <select name="kis" id="kis"
-                                                    class="form-control @error('kis') is-invalid @enderror"
-                                                    required>
-                                                    <option value="" disabled selected>Pilih JKN-KIS</option>
+                                                    class="form-control @error('kis') is-invalid @enderror" required>
+                                                    <option value="" disabled
+                                                        {{ old('kis', $penduduk->kis) ? '' : 'selected' }}>
+                                                        Pilih JKN-KIS</option>
                                                     @foreach ($kisList as $item)
-                                                        <option value="{{ $item->id_kis }}"
+                                                        <option value="{{ $item->jenis }}"
                                                             {{ old('kis', $penduduk->kis) == $item->jenis ? 'selected' : '' }}>
                                                             {{ $item->jenis }}
                                                         </option>

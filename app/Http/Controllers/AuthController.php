@@ -34,7 +34,7 @@ class AuthController extends Controller
             Alert::success('Success', 'Login success !');
             return redirect()->intended('/dashboard');
         } else {
-            Alert::error('Error', 'Login failed !');
+            Alert::error('Error', 'Username atau password tidak sesuai !');
             return redirect('/login');
         }
     }

@@ -77,10 +77,17 @@ class AdmBeritaController extends Controller
     public function destroy(Berita $berita)
     {
         if ($berita->image && file_exists(public_path('storage/img/' . $berita->image))) {
-            unlink(public_path($berita->image));
+            unlink(public_path('storage/img/' . $berita->image));
         }
-        $berita->delete();
-        Alert::info('Success', 'Berita has been deleted!');
+
+        $deleted = $berita->delete();
+
+        if ($deleted) {
+            Alert::info('Success', 'Berita has been deleted!');
+        } else {
+            Alert::error('Error', 'Failed to delete berita!');
+        }
+
         return redirect('/admin/berita');
     }
 }

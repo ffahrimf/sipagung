@@ -564,7 +564,7 @@
                     </h3>
                     <div class="bg-gray-100 rounded-lg flex overflow-hidden">
                         <input type="email" placeholder="Alamat email"
-                            class="py-2 px-4 bg-gray-100 text-gray-700 focus:outline-none focus:ring-primary" />
+                            class="py-2 px-4 bg-gray-200 text-gray-700 focus:outline-none focus:ring-primary" />
                         <button
                             class="bg-primary hover:bg-primaryhover rounded-tr-lg rounded-br-lg p-4 flex items-center justify-center text-white transition duration-300 ease-in-out">
                             <i class="fa-solid fa-paper-plane"></i>

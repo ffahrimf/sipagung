@@ -85,6 +85,8 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="image">Gambar</label>
@@ -95,11 +97,14 @@
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                                 @if ($berita->image)
-                                                    <img src="{{ asset('storage/' . $berita->image) }}" alt="Current Image"
-                                                        class="img-thumbnail mt-2" width="150">
+                                                    <img src="{{ asset($berita->image) }}" alt="Current Image"
+                                                        class="mt-2" style="max-width: 200px;">
                                                 @endif
                                             </div>
                                         </div>
+
+
+
                                     </div>
 
                                 </div>

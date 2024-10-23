@@ -168,7 +168,7 @@
     "src": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-83f98fdb.css",
+    "file": "assets/app-4309f797.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

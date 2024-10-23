@@ -24,7 +24,9 @@ class PendudukController extends Controller
                 return $query->where(function ($q) use ($search) {
                     $q->where('nik', 'like', "%{$search}%")
                         ->orWhere('no_kk', 'like', "%{$search}%")
-                        ->orWhere('nama', 'like', "%{$search}%");
+                        ->orWhere('nama', 'like', "%{$search}%")
+                        ->orWhere('bantuan', 'like', "%{$search}%")
+                        ->orWhere('kis', 'like', "%{$search}%");
                 });
             })->orderBy('nik', 'asc')->paginate(10);
         } else {
@@ -34,7 +36,9 @@ class PendudukController extends Controller
                     return $query->where(function ($q) use ($search) {
                         $q->where('nik', 'like', "%{$search}%")
                             ->orWhere('no_kk', 'like', "%{$search}%")
-                            ->orWhere('nama', 'like', "%{$search}%");
+                            ->orWhere('nama', 'like', "%{$search}%")
+                            ->orWhere('bantuan', 'like', "%{$search}%")
+                            ->orWhere('kis', 'like', "%{$search}%");
                     });
                 })->orderBy('nik', 'asc')->paginate(10);
         }

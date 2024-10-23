@@ -58,7 +58,8 @@
                                                 <label for="judul">Judul Berita</label>
                                                 <input type="text" name="judul"
                                                     class="form-control @error('judul') is-invalid @enderror" id="judul"
-                                                    placeholder="Judul Berita" value="{{ old('judul', $berita->judul) }}" required>
+                                                    placeholder="Judul Berita" value="{{ old('judul', $berita->judul) }}"
+                                                    required>
                                                 @error('judul')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
@@ -69,8 +70,7 @@
                                                 <label for="tanggal">Tanggal</label>
                                                 <input type="date" name="tanggal"
                                                     class="form-control @error('tanggal') is-invalid @enderror"
-                                                    id="tanggal" value="{{ old('tanggal', $berita->tanggal) }}"
-                                                    required>
+                                                    id="tanggal" value="{{ old('tanggal', $berita->tanggal) }}" required>
                                                 @error('tanggal')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
@@ -99,8 +99,9 @@
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
                                                 <!-- Optional: display the current image -->
-                                                @if($berita->image)
-                                                    <img src="{{ asset('storage/' . $berita->image) }}" alt="Current Image" class="img-thumbnail mt-2" width="150">
+                                                @if ($berita->image)
+                                                    <img src="{{ asset('storage/' . $berita->image) }}" alt="Current Image"
+                                                        class="img-thumbnail mt-2" width="150">
                                                 @endif
                                             </div>
                                         </div>

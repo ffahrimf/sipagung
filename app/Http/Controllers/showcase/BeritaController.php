@@ -11,20 +11,14 @@ use PDF;
 
 class BeritaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
 
         $beritas = Berita::all();
-        // $user = auth()->user();
 
         return view('showcase.berita', [
-            'beritas'=> $beritas
+            'beritas' => $beritas
         ]);
     }
-
-
-
 }

@@ -3,29 +3,24 @@
 @section('content')
 
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">@yield('title')</h1>
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="/penduduk">Penduduk</a></li>
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -277,8 +272,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -353,8 +346,6 @@
                                         </div>
 
                                     </div>
-
-
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -409,22 +400,12 @@
                                         </div>
 
                                     </div>
-
-
-
-
-
-
-
-
-
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="bantuan">Bantuan</label>
                                                 <select name="bantuan" id="bantuan"
-                                                    class="form-control @error('bantuan') is-invalid @enderror"
-                                                    required>
+                                                    class="form-control @error('bantuan') is-invalid @enderror" required>
                                                     <option value="" disabled selected>Pilih Bantuan Sosial</option>
                                                     <option value="-">Tidak Ada</option>
                                                     @foreach ($bantuanList as $item)
@@ -443,8 +424,7 @@
                                             <div class="form-group">
                                                 <label for="kis">JKN-KIS</label>
                                                 <select name="kis" id="kis"
-                                                    class="form-control @error('kis') is-invalid @enderror"
-                                                    required>
+                                                    class="form-control @error('kis') is-invalid @enderror" required>
                                                     <option value="" disabled selected>Pilih JKN-KIS</option>
                                                     <option value="-">Tidak Ada</option>
                                                     @foreach ($kisList as $item)
@@ -459,16 +439,8 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        </div>
-
-
-
-
-                                    
-                                    
-                                    
-                                    
-                                        <div class="row">
+                                    </div>
+                                    <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="ayah">Nama Ayah</label>
@@ -494,9 +466,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -511,15 +480,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
-
-
-
-
                                 </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-dark mr-1" type="reset"><i
@@ -532,7 +492,6 @@
                             </form>
                         </div>
                     </div>
-                    <!-- /.content -->
                 </div>
             </div>
         </div>

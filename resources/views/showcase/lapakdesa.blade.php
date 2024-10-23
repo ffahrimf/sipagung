@@ -6,7 +6,6 @@
         <div class="flex flex-col gap-7">
             <div class="flex flex-col gap-4 bg-white border border-gray-200 shadow-lg rounded-lg p-4 mt-32">
                 <div class="flex flex-row items-center gap-2">
-                    {{-- <img src="/assets/img/lapak-desa/food-stall.png" class="h-7" alt=""> --}}
                     <h1 class="text-2xl md:text-3xl font-dmsans mx-10 md:mx-0">Lapak <strong>Desa</strong></h1>
                 </div>
                 <hr class="border-t-[1px] border-gray-300" />
@@ -105,11 +104,6 @@
                         </div>
                     @endforeach
                 </div>
-
-
-
-
-
             </div>
 
         </div>

@@ -2,16 +2,11 @@
 @section('title', 'Disabilitas')
 @section('content')
 
-    <!-- Main content -->
     <section class="content mt-28 md:px-20">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        {{-- <div class="card-header">
-                            <h3 class="card-title">Data Disabilitas per Dusun</h3>
-                        </div> --}}
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-striped">
                                 <thead>
@@ -51,13 +46,9 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
     </section>
 

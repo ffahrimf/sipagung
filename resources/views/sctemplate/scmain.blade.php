@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
     <link rel="shortcut icon" href="assets/img/mountain.png" type="image/x-icon">
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
@@ -30,8 +30,8 @@
     @include('sweetalert::alert')
 
     <div class="wrapper">
-        
-        
+
+
 
         <!-- Navbar -->
         <nav class="mb-3 bg-white shadow-2xl py-4 px-24 fixed top-0 z-50 w-full">
@@ -39,23 +39,11 @@
                 <i class="fas fa-arrow-left"></i> Kembali
             </a>
         </nav>
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-        
 
         @yield('content')
 
-        <!-- Content Wrapper. Contains page content -->
-        {{-- content here --}}
-        <!-- /.content-wrapper -->
-
-        <!-- Main Footer -->
-        
-
 
     </div>
-    <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
 
@@ -86,12 +74,9 @@
     <script>
         $(function() {
             var url = window.location;
-            // for single sidebar menu
             $('ul.nav-sidebar a').filter(function() {
                 return this.href == url;
             }).addClass('active');
-
-            // for sidebar menu and treeview
             $('ul.nav-treeview a').filter(function() {
                     return this.href == url;
                 }).parentsUntil(".nav-sidebar > .nav-treeview")
@@ -105,7 +90,6 @@
 
     <script>
         $(function() {
-            // Initialize DataTable for #example1
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,
@@ -149,7 +133,6 @@
                                     '<style>' +
                                     '@page { size: A4 landscape; margin: 10mm; }' +
                                     'h1 { text-align: center;  font-weight:bold;}' +
-                                    // Center the title
                                     '</style>'
                                 );
                             $(win.document.body).find('table')
@@ -164,7 +147,6 @@
                 ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-            // Initialize DataTable for #example2
             $("#example2").DataTable({
                 "responsive": true,
                 "lengthChange": false,
@@ -208,16 +190,13 @@
                                     '<style>' +
                                     '@page { size: A4 landscape; margin: 10mm; }' +
                                     'h1 { text-align: center;  font-weight:bold;}' +
-                                    // Center the title
                                     '</style>'
                                 );
                             $(win.document.body).find('table')
                                 .addClass('compact')
                                 .css('font-size', 'inherit');
                         },
-                        exportOptions: {
-                            // columns: ':not(:last-child)'
-                        }
+                        exportOptions: {}
                     },
                     "colvis"
                 ]

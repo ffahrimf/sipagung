@@ -11,12 +11,10 @@ use PDF;
 
 class SCDisabilitasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        // Static dusun values
+
         $dusuns = [
             'Pamekaran',
             'Cimaja',
@@ -26,7 +24,7 @@ class SCDisabilitasController extends Controller
             'Nanggeleng',
             'Darawati'
         ];
-        
+
         $data = [];
 
         foreach ($dusuns as $dusun) {

@@ -11,9 +11,7 @@ use PDF;
 
 class MasterBantuanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $bantuan = Bantuan::orderBy('jenis', 'asc')->get();
@@ -24,17 +22,12 @@ class MasterBantuanController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('master.bantuan.bantuan-add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -47,24 +40,20 @@ class MasterBantuanController extends Controller
         return redirect('/mbantuan');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id_bantuan)
-{
-    $bantuan = Bantuan::findOrFail($id_bantuan);
-    $bantuanList = Bantuan::orderBy('jenis', 'asc')->get(); // Ambil daftar jenis bantuan
+    {
+        $bantuan = Bantuan::findOrFail($id_bantuan);
+        $bantuanList = Bantuan::orderBy('jenis', 'asc')->get();
 
-    return view('master.bantuan.bantuan-edit', [
-        'bantuan' => $bantuan,
-        'bantuanList' => $bantuanList, // Kirimkan ke view
-    ]);
-}
+        return view('master.bantuan.bantuan-edit', [
+            'bantuan' => $bantuan,
+            'bantuanList' => $bantuanList,
+        ]);
+    }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id_bantuan)
     {
         $validated = $request->validate([
@@ -78,9 +67,6 @@ class MasterBantuanController extends Controller
         return redirect('/mbantuan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id_bantuan)
     {
         try {

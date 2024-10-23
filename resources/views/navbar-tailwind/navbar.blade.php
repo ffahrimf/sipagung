@@ -126,7 +126,8 @@
                             <a href="/showcase/berita" class="">Berita</a>
                         </li>
                         <hr class="border-t-[1px] border-gray-300" />
-                        <li class="md:hidden md:hover:bg-transparent md:hover:text-primary transition duration-200 ease-in-out">
+                        <li
+                            class="md:hidden md:hover:bg-transparent md:hover:text-primary transition duration-200 ease-in-out">
                             <a href="/login" class="">Masuk</a>
                         </li>
                     </ul>
@@ -330,7 +331,6 @@
             dropdownMenu.classList.toggle('hidden');
         }
 
-        // Event listener to close the dropdown when clicking outside of it
         document.addEventListener('click', function(event) {
             const dropdownMenu = document.getElementById('dropdownMenu');
             const dropdownToggle = event.target.closest('a.nav-link');

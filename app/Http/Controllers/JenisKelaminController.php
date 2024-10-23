@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class JenisKelaminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
@@ -20,7 +17,6 @@ class JenisKelaminController extends Controller
             $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
         }
 
-        // Define the list of gender categories
         $jenisKelaminCategories = ['Laki-laki', 'Perempuan'];
 
         $jenisKelaminData = [];
@@ -37,7 +33,6 @@ class JenisKelaminController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($jenisKelaminData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
 

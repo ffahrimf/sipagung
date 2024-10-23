@@ -11,20 +11,12 @@ use PDF;
 
 class SCJenisKelaminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-       // $user = auth()->user();
-       $penduduk = Penduduk::orderBy('nik', 'asc')->get();
 
-       // if ($user->level == 'Admin') {
-       // } else {
-       //     $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
-       // }
+        $penduduk = Penduduk::orderBy('nik', 'asc')->get();
 
-        // Define the list of gender categories
         $jenisKelaminCategories = ['Laki-laki', 'Perempuan'];
 
         $jenisKelaminData = [];
@@ -41,7 +33,7 @@ class SCJenisKelaminController extends Controller
             ];
         }
 
-        // Calculate totals
+
         $total_jumlah_n = array_sum(array_column($jenisKelaminData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
 

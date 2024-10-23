@@ -193,7 +193,6 @@
                     <img src="./assets/img/pose-nasional.jpg" alt="" class="object-cover w-full h-[inherit]">
                 </div>
             </div>
-            <!-- Input Form -->
             <div class="w-full md:w-5/12">
                 <div
                     class="bg-white border border-gray-200 shadow-lg rounded-2xl px-5 md:px-10 py-6 md:text-center space-y-5">
@@ -231,7 +230,6 @@
                 <div class="flex flex-col gap-10 md:gap-14">
                     <h1 class="text-center text-2xl md:text-5xl font-inter font-bold">
                         <span>Statistik </span><span><span class="text-primary">Desa
-                                {{-- </span> There!</span> --}}
                     </h1>
                     <div class="">
                         <div class="grid grid-rows-2 gap-5">
@@ -299,7 +297,8 @@
                 <div class="absolute bottom-0 left-0 w-full p-6 bg-transparent text-white font-poppins">
                     <a href="/showcase/berita">
                         <h3 class="text-xl md:text-2xl font-semibold">{{ $beritaTerbaru->heading }}:</h3>
-                        <p class="hidden md:block text-sm md:text-lg">{{ Str::limit($beritaTerbaru->judul, 35, '...') }}</p>
+                        <p class="hidden md:block text-sm md:text-lg">
+                            {{ Str::limit($beritaTerbaru->judul, 35, '...') }}</p>
                         <p class="md:hidden text-sm md:text-lg">{{ Str::limit($beritaTerbaru->judul, 30, '...') }}</p>
                     </a>
                     <div class="flex items-center mt-3 text-xs md:text-sm text-white">
@@ -352,7 +351,8 @@
                     <img src="./assets/img/FOTBAR-VOLI.jpg" alt="" class="object-cover w-full h-[inherit]">
                     <img src="./assets/img/pose-nasional.jpg" alt="" class="object-cover w-full h-[inherit]"> --}}
                     </div>
-                    <div class="absolute bottom-0 w-full p-6 bg-transparent text-sm text-white font-poppins font-medium">
+                    <div
+                        class="absolute bottom-0 w-full p-6 bg-transparent text-sm text-white font-poppins font-medium">
                         <div class="flex flex-row">
                             <div href="/showcase/lapak"
                                 class="bg-secondary hover:bg-amber-400 transition duration-300 ease-in-out px-3 py-1 rounded-s-md">
@@ -374,6 +374,9 @@
                     <span>Aparatur </span><span><span class="text-primary">Desa</span></span>
                 </h1>
                 <div class="relative overflow-x-auto py-8 scroll-container font-dmsans">
+
+
+
                     <div class="flex space-x-8 md:px-5">
                         <!-- Aparatur Item -->
                         <div class="relative w-56 flex-shrink-0">
@@ -456,6 +459,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
@@ -468,7 +474,6 @@
             <div class="flex justify-between items-center">
                 <h1 class="flex flex-col md:flex-row md:gap-4 text-2xl md:text-5xl font-inter font-bold">
                     <span>Maju, </span><span><span class="text-primary">Mandiri!
-                            {{-- </span> There!</span> --}}
                 </h1>
                 <div class="hidden md:flex bg-black rounded-full">
                     <div class="flex justify-between text-lg">
@@ -659,7 +664,6 @@
             dropdownMenu.classList.toggle('hidden');
         }
 
-        // Event listener to close the dropdown when clicking outside of it
         document.addEventListener('click', function(event) {
             const dropdownMenu = document.getElementById('dropdownMenu');
             const dropdownToggle = event.target.closest('a.nav-link');
@@ -680,24 +684,22 @@
     </script>
 
     <script>
-        // JavaScript to automatically switch the carousel images
         const carouselWrapper = document.querySelector('.carousel-wrapper');
         let currentIndex = 0;
 
         setInterval(() => {
             currentIndex = (currentIndex + 1) % 3;
             carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }, 5000); // Change image every 3 seconds
+        }, 5000);
     </script>
     <script>
-        // JavaScript to automatically switch the carousel images
         const carouselLapak = document.querySelector('.carousel-lapak');
         let currentIndexLapak = 0;
 
         setInterval(() => {
             currentIndexLapak = (currentIndexLapak + 1) % 3;
             carouselLapak.style.transform = `translateX(-${currentIndexLapak * 100}%)`;
-        }, 5000); // Change image every 3 seconds
+        }, 5000);
     </script>
 
 </body>

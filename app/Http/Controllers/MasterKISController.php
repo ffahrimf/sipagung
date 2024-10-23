@@ -11,9 +11,6 @@ use PDF;
 
 class MasterKISController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $kis = KIS::orderBy('jenis', 'asc')->get();
@@ -24,17 +21,10 @@ class MasterKISController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('master.kis.kis-add');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -49,24 +39,18 @@ class MasterKISController extends Controller
         return redirect('/mkis');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id_kis)
-{
-    $kis = KIS::findOrFail($id_kis);
-    $kisList = KIS::orderBy('jenis', 'asc')->get(); // Ambil daftar jenis kis
+    {
+        $kis = KIS::findOrFail($id_kis);
+        $kisList = KIS::orderBy('jenis', 'asc')->get();
 
-    return view('master.kis.kis-edit', [
-        'kis' => $kis,
-        'kisList' => $kisList, // Kirimkan ke view
-    ]);
-}
+        return view('master.kis.kis-edit', [
+            'kis' => $kis,
+            'kisList' => $kisList,
+        ]);
+    }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id_kis)
     {
         $validated = $request->validate([
@@ -82,9 +66,6 @@ class MasterKISController extends Controller
         return redirect('/mkis');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id_kis)
     {
         try {

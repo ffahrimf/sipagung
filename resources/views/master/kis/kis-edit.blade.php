@@ -3,29 +3,24 @@
 @section('content')
 
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">@yield('title')</h1>
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="/mkis">JKN-KIS</a></li>
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -37,8 +32,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <form class="needs-validation" novalidate action="/mkis/{{ $kis->id_kis }}"
-                                method="POST">
+                            <form class="needs-validation" novalidate action="/mkis/{{ $kis->id_kis }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
@@ -47,9 +41,9 @@
                                             <div class="form-group">
                                                 <label for="jenis">Jenis JKN-KIS</label>
                                                 <input type="text" name="jenis"
-                                                    class="form-control @error('jenis') is-invalid @enderror"
-                                                    id="jenis" placeholder="Jenis Jaminan"
-                                                    value="{{ old('jenis', $kis->jenis) }}" required>
+                                                    class="form-control @error('jenis') is-invalid @enderror" id="jenis"
+                                                    placeholder="Jenis Jaminan" value="{{ old('jenis', $kis->jenis) }}"
+                                                    required>
                                                 @error('jenis')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
@@ -67,7 +61,7 @@
                                                     <option value="Non PBI"
                                                         {{ old('kategori', $kis->kategori) == 'Non PBI' ? 'selected' : '' }}>
                                                         Non PBI</option>
-                                                   
+
                                                 </select>
                                                 @error('kategori')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
@@ -80,10 +74,10 @@
                                             <div class="form-group">
                                                 <label for="keterangan">Keterangan</label>
                                                 <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
-                                                placeholder="Keterangan" rows="4" required>{{ old('keterangan', $kis->keterangan) }}</textarea>
-                                            @error('keterangan')
-                                                <span class="invalid-feedback text-danger">{{ $message }}</span>
-                                            @enderror
+                                                    placeholder="Keterangan" rows="4" required>{{ old('keterangan', $kis->keterangan) }}</textarea>
+                                                @error('keterangan')
+                                                    <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -93,14 +87,12 @@
                                     <button class="btn btn-dark mr-1" type="reset"><i
                                             class="fa-solid fa-arrows-rotate"></i>
                                         Reset</button>
-                                    <button class="btn btn-success" type="submit"><i
-                                            class="fa-solid fa-floppy-disk"></i>
+                                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i>
                                         Save</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- /.content -->
                 </div>
             </div>
         </div>

@@ -11,20 +11,14 @@ use PDF;
 
 class SejarahController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
 
         $sejarah = Sejarah::all();
-        // $user = auth()->user();
 
         return view('showcase.profile.sejarah', [
-            'sejarah'=> $sejarah
+            'sejarah' => $sejarah
         ]);
     }
-
-
-
 }

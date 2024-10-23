@@ -4,38 +4,33 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">@yield('title')</h1>
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <div class="text-right py-1">
                                     <a href="/mdisabilitas/create"
-                                        class="text-white bg-teal-600 rounded-lg px-3 py-2 hover:bg-teal-700 transition font-medium duration-300 ease-in-out">Tambah <span class="hidden md:inline">Warga Disabilitas</span></a>
+                                        class="text-white bg-teal-600 rounded-lg px-3 py-2 hover:bg-teal-700 transition font-medium duration-300 ease-in-out">Tambah
+                                        <span class="hidden md:inline">Warga Disabilitas</span></a>
                                 </div>
                             </div>
-                            <!-- /.card-header -->
                             <div class="card-body">
                                 <div style="overflow-x: auto">
                                     <table id="example1" class="table table-striped table-bordered table-hover text-center"
@@ -74,8 +69,8 @@
                                                                 <a class="dropdown-item"
                                                                     href="/mdisabilitas/{{ $data->id_disabilitas }}/edit">Edit
                                                                 </a>
-                                                                <form action="/mdisabilitas/{{ $data->id_disabilitas }}" method="POST"
-                                                                    class="d-inline">
+                                                                <form action="/mdisabilitas/{{ $data->id_disabilitas }}"
+                                                                    method="POST" class="d-inline">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <button type="submit" class="dropdown-item text-danger"
@@ -108,10 +103,8 @@
 
 
                     </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
+                </div>
             </div>
-            <!-- /.content -->
         </div>
     </div>
     </div>

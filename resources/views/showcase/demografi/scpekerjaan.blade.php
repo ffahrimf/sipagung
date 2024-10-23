@@ -2,17 +2,12 @@
 @section('title', 'Pekerjaan')
 @section('content')
 
-    <!-- Main content -->
     <section class="content mt-28 md:px-20">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
 
                     <div class="card">
-                        {{-- <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div>     --}}
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-striped">
                                 <thead>
@@ -20,8 +15,8 @@
                                         <th rowspan="2">No</th>
                                         <th rowspan="2">Pekerjaan</th>
                                         <th colspan="2">Jumlah</th>
-                                    <th class="hidden md:table-cell" colspan="2">Laki-laki</th>
-                                    <th class="hidden md:table-cell" colspan="2">Perempuan</th>
+                                        <th class="hidden md:table-cell" colspan="2">Laki-laki</th>
+                                        <th class="hidden md:table-cell" colspan="2">Perempuan</th>
                                     </tr>
                                     <tr>
                                         <th>n</th>
@@ -60,15 +55,10 @@
                             </table>
 
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
 
 @endsection

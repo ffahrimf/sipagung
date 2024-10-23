@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 class DisabilitasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        // Static dusun values
+
         $dusuns = [
             'Pamekaran',
             'Cimaja',
@@ -22,7 +20,7 @@ class DisabilitasController extends Controller
             'Nanggeleng',
             'Darawati'
         ];
-        
+
         $data = [];
 
         foreach ($dusuns as $dusun) {

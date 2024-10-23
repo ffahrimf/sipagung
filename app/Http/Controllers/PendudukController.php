@@ -10,16 +10,12 @@ use PDF;
 
 class PendudukController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $user = auth()->user();
         $search = $request->input('search');
 
         if ($user->level == 'Admin') {
-            // Paginate the result with 10 records per page for Admin
             $penduduk = Penduduk::when($search, function ($query) use ($search) {
                 return $query->where(function ($q) use ($search) {
                     $q->where('nik', 'like', "%{$search}%")
@@ -30,7 +26,6 @@ class PendudukController extends Controller
                 });
             })->orderBy('nik', 'asc')->paginate(10);
         } else {
-            // Paginate the result with 10 records per page for other users, filtered by 'dusun'
             $penduduk = Penduduk::where('dusun', $user->level)
                 ->when($search, function ($query) use ($search) {
                     return $query->where(function ($q) use ($search) {
@@ -51,30 +46,22 @@ class PendudukController extends Controller
 
 
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $pekerjaanList = Pekerjaan::orderBy('nama', 'asc')->get();
-        $kisList = KIS::orderBy('jenis', 'asc')->get(); // Ensure this is retrieved
+        $kisList = KIS::orderBy('jenis', 'asc')->get();
         $bantuanList = Bantuan::orderBy('jenis', 'asc')->get();
 
         return view('master.penduduk.penduduk-add', [
             'pekerjaanList' => $pekerjaanList,
-            'kisList' => $kisList, // Pass both variables in one return
-            'bantuanList' => $bantuanList // Pass both variables in one return
+            'kisList' => $kisList,
+            'bantuanList' => $bantuanList
         ]);
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        // Validasi data yang dikirim
         $validated = $request->validate([
             'nik' => 'required|digits_between:1,16|unique:t_penduduk',
             'no_kk' => 'required|digits_between:1,16',
@@ -99,7 +86,6 @@ class PendudukController extends Controller
             'kepala_keluarga' => 'required|max:50',
         ]);
 
-        // Simpan data
         Penduduk::create($validated);
 
         Alert::success('Success', 'Penduduk has been saved!');
@@ -110,29 +96,9 @@ class PendudukController extends Controller
 
 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Penduduk $penduduk)
-    {
-        //
-    }
-
-    //     public function printPenduduk()
-    // {
-    //     $penduduk = Penduduk::all();
-    //     $data = ['t_penduduk' => $penduduk];
-
-    //     $pdf = PDF::loadView('master.penduduk.penduduk-print', $data)
-    //               ->setPaper('a4', 'landscape');
-
-    //     return $pdf->stream('view-penduduk.pdf');
-    // }
+    public function show(Penduduk $penduduk) {}
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($nik)
     {
         $penduduk = Penduduk::with('pekerjaan')->findOrFail($nik); // Mengambil penduduk beserta relasi pekerjaan
@@ -152,9 +118,6 @@ class PendudukController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $nik)
     {
         $validated = $request->validate([
@@ -189,9 +152,6 @@ class PendudukController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($nik)
     {
         try {

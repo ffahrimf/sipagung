@@ -11,9 +11,6 @@ use PDF;
 
 class MasterPekerjaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $pekerjaan = Pekerjaan::orderBy('nama', 'asc')->get();
@@ -24,17 +21,11 @@ class MasterPekerjaanController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('master.pekerjaan.pekerjaan-add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -47,24 +38,18 @@ class MasterPekerjaanController extends Controller
         return redirect('/mpekerjaan');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id_pekerjaan)
-{
-    $pekerjaan = Pekerjaan::findOrFail($id_pekerjaan);
-    $pekerjaanList = Pekerjaan::orderBy('nama', 'asc')->get(); // Ambil daftar pekerjaan
+    {
+        $pekerjaan = Pekerjaan::findOrFail($id_pekerjaan);
+        $pekerjaanList = Pekerjaan::orderBy('nama', 'asc')->get();
 
-    return view('master.pekerjaan.pekerjaan-edit', [
-        'pekerjaan' => $pekerjaan,
-        'pekerjaanList' => $pekerjaanList, // Kirimkan ke view
-    ]);
-}
+        return view('master.pekerjaan.pekerjaan-edit', [
+            'pekerjaan' => $pekerjaan,
+            'pekerjaanList' => $pekerjaanList,
+        ]);
+    }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id_pekerjaan)
     {
         $validated = $request->validate([
@@ -78,9 +63,6 @@ class MasterPekerjaanController extends Controller
         return redirect('/mpekerjaan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id_pekerjaan)
     {
         try {

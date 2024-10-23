@@ -2,13 +2,11 @@
 @section('title', 'Luas Wilayah')
 @section('content')
 
-    <!-- Main content -->
     <section class="content mt-28 md:px-20">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <!-- /.card-header -->
                         <div class="card-body">
                             @php
                                 $totalLuas = 0;
@@ -34,7 +32,7 @@
                                             ['name' => 'Limusagung', 'luas' => 47, 'rw' => 1, 'rt' => 2],
                                             ['name' => 'Mangunjaya', 'luas' => 22, 'rw' => 1, 'rt' => 4],
                                             ['name' => 'Darawati', 'luas' => 80, 'rw' => 1, 'rt' => 2],
-                                            ['name' => 'Nanggeleng', 'luas' => 74.34, 'rw' => 1, 'rt' => 4]
+                                            ['name' => 'Nanggeleng', 'luas' => 74.34, 'rw' => 1, 'rt' => 4],
                                         ];
                                     @endphp
                                     @foreach ($dusuns as $index => $dusun)
@@ -62,13 +60,9 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
     </section>
 

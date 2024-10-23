@@ -10,9 +10,6 @@ use PDF;
 
 class PendidikanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
@@ -23,19 +20,18 @@ class PendidikanController extends Controller
             $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
         }
 
-        // Updated list of education categories
         $pendidikanCategories = [
-            'Tidak/Belum Sekolah', 
-            'Tidak Tamat SD/Sederajat', 
-            'Tamat SD/Sederajat', 
-            'SLTP/Sederajat', 
-            'SLTA/Sederajat', 
-            'Akademi/Diploma III/S. Muda', 
-            'Diploma I/II', 
-            'Diploma IV/Strata I', 
-            'Strata II', 
-            'Strata III', 
-            'Pendidikan Non-Formal', 
+            'Tidak/Belum Sekolah',
+            'Tidak Tamat SD/Sederajat',
+            'Tamat SD/Sederajat',
+            'SLTP/Sederajat',
+            'SLTA/Sederajat',
+            'Akademi/Diploma III/S. Muda',
+            'Diploma I/II',
+            'Diploma IV/Strata I',
+            'Strata II',
+            'Strata III',
+            'Pendidikan Non-Formal',
             'Pendidikan Khusus'
         ];
 
@@ -61,7 +57,6 @@ class PendidikanController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($pendidikanData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
         $total_laki_laki_n = array_sum(array_column($pendidikanData, 'laki_laki_n'));

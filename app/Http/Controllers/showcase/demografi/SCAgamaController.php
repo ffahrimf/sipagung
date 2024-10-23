@@ -11,22 +11,20 @@ use PDF;
 
 class SCAgamaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        // $user = auth()->user();
+
         $penduduk = Penduduk::orderBy('nik', 'asc')->get();
 
-        // if ($user->level == 'Admin') {
-        // } else {
-        //     $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
-        // }
 
-        // Define the list of religions
         $agamaCategories = [
-            'Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'
+            'Islam',
+            'Kristen',
+            'Katolik',
+            'Hindu',
+            'Buddha',
+            'Konghucu'
         ];
 
         $agamaData = [];

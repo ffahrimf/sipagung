@@ -11,9 +11,6 @@ use PDF;
 
 class PekerjaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
@@ -24,7 +21,6 @@ class PekerjaanController extends Controller
             $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
         }
 
-        // Fetch pekerjaan data
         $pekerjaanList = Pekerjaan::orderBy('nama', 'asc')->get();
 
         $pekerjaanData = [];
@@ -49,7 +45,6 @@ class PekerjaanController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($pekerjaanData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
         $total_laki_laki_n = array_sum(array_column($pekerjaanData, 'laki_laki_n'));

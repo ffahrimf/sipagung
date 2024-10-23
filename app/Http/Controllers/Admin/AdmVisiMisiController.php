@@ -15,23 +15,6 @@ class AdmVisiMisiController extends Controller
         return view('Admin.visi-misi.index', compact('visiMisi'));
     }
 
-    // public function create()
-    // {
-    //     return view('Admin.visi-misi.create');
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'visi' => 'required',
-    //         'misi' => 'required',
-    //     ]);
-
-    //     VisiMisi::create($request->all());
-    //     return redirect()->route('Admin.visi-misi.index')
-    //                      ->with('success', 'Visi dan Misi berhasil ditambahkan.');
-    // }
-
     public function show(VisiMisi $visiMisi)
     {
         return view('Admin.visi-misi.show', compact('visiMisi'));

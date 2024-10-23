@@ -9,20 +9,11 @@ use Carbon\Carbon;
 
 class SCUmurController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $penduduk = Penduduk::orderBy('nik', 'asc')->get();
-        // $user = auth()->user();
 
-        // if ($user->level == 'Admin') {
-        // } else {
-        //     $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
-        // }
-
-        // Define the age range categories
         $umurCategories = [
             'Di bawah 1 Tahun' => [0, 1],
             '2 s/d 4 Tahun' => [2, 4],
@@ -70,7 +61,6 @@ class SCUmurController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($umurData, 'jumlah_n'));
         $total_laki_laki_n = array_sum(array_column($umurData, 'laki_laki_n'));
         $total_perempuan_n = array_sum(array_column($umurData, 'perempuan_n'));

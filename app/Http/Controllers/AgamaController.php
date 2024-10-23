@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class AgamaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $user = auth()->user();
@@ -20,9 +18,13 @@ class AgamaController extends Controller
             $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
         }
 
-        // Define the list of religions
         $agamaCategories = [
-            'Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'
+            'Islam',
+            'Kristen',
+            'Katolik',
+            'Hindu',
+            'Buddha',
+            'Konghucu'
         ];
 
         $agamaData = [];
@@ -47,7 +49,6 @@ class AgamaController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($agamaData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
         $total_laki_laki_n = array_sum(array_column($agamaData, 'laki_laki_n'));

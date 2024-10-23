@@ -27,7 +27,7 @@ class DashboardController extends Controller
             'penduduk' => $penduduk,
             'disabilitas' => $disabilitas,
             'pekerjaanCount' => $pekerjaanCount,
-            'jumlahKeluarga' => $jumlahKeluarga,  // Pass the family count to the view
+            'jumlahKeluarga' => $jumlahKeluarga,
         ]);
     }
 }

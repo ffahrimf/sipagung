@@ -12,20 +12,13 @@ use PDF;
 
 class SCPekerjaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        // $user = auth()->user();
+
         $penduduk = Penduduk::orderBy('nik', 'asc')->get();
 
-        // if ($user->level == 'Admin') {
-        // } else {
-        //     $penduduk = Penduduk::where('dusun', $user->level)->orderBy('nik', 'asc')->get();
-        // }
 
-        // Fetch pekerjaan data
         $pekerjaanList = Pekerjaan::orderBy('nama', 'asc')->get();
 
         $pekerjaanData = [];
@@ -50,7 +43,6 @@ class SCPekerjaanController extends Controller
             ];
         }
 
-        // Calculate totals
         $total_jumlah_n = array_sum(array_column($pekerjaanData, 'jumlah_n'));
         $total_jumlah_percent = $total_jumlah_n ? number_format(($total_jumlah_n / $penduduk->count()) * 100, 2) : 0;
         $total_laki_laki_n = array_sum(array_column($pekerjaanData, 'laki_laki_n'));

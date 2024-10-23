@@ -15,22 +15,6 @@ class AdmSejarahController extends Controller
         return view('Admin.sejarah.index', compact('sejarah'));
     }
 
-    // public function create()
-    // {
-    //     return view('Admin.sejarah.create');
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'content' => 'required',
-    //     ]);
-
-    //     Sejarah::create($request->all());
-    //     return redirect()->route('Admin.sejarah.index')
-    //                      ->with('success', 'Sejarah berhasil ditambahkan.');
-    // }
-
     public function show(Sejarah $sejarah)
     {
         return view('Admin.sejarah.show', compact('sejarah'));

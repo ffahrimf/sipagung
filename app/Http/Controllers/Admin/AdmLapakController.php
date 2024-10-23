@@ -9,20 +9,17 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AdmLapakController extends Controller
 {
-    // Display a listing of the resource.
     public function index()
     {
         $lapakdesas = Lapakdesa::all();
         return view('Admin.lapakdesa.index', compact('lapakdesas'));
     }
 
-    // Show the form for creating a new resource.
     public function create()
     {
         return view('Admin.lapakdesa.create');
     }
 
-    // Store a newly created resource in storage.
     public function store(Request $request)
     {
         $request->validate([
@@ -48,19 +45,16 @@ class AdmLapakController extends Controller
         return redirect('/admin/lapakdesa');
     }
 
-    // Display the specified resource.
     public function show(Lapakdesa $lapakdesa)
     {
         return view('Admin.lapakdesa.show', compact('lapakdesa'));
     }
 
-    // Show the form for editing the specified resource.
     public function edit(Lapakdesa $lapakdesa)
     {
         return view('Admin.lapakdesa.edit', compact('lapakdesa'));
     }
 
-    // Update the specified resource in storage.
     public function update(Request $request, Lapakdesa $lapakdesa)
     {
         $request->validate([
@@ -86,7 +80,6 @@ class AdmLapakController extends Controller
         return redirect('/admin/lapakdesa');
     }
 
-    // Remove the specified resource from storage.
     public function destroy(Lapakdesa $lapakdesa)
     {
         if ($lapakdesa->image && file_exists(public_path('storage/img/' . $lapakdesa->image))) {

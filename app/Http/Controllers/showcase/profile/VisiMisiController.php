@@ -11,20 +11,14 @@ use PDF;
 
 class VisiMisiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
 
         $visiMisi = VisiMisi::all();
-        // $user = auth()->user();
 
         return view('showcase.profile.visi-misi', [
-            'visiMisi'=> $visiMisi
+            'visiMisi' => $visiMisi
         ]);
     }
-
-
-
 }

@@ -58,10 +58,6 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/dashboard" class="nav-link">Dashboard</a>
                 </li>
-                {{-- <li class="nav-item d-none d-sm-inline-block">
-          <a href="/" class="nav-link">Mobil</a>
-        </li> --}}
-
             </ul>
 
             <!-- Right navbar links -->
@@ -89,106 +85,11 @@
                     </div>
                 </li>
 
-                <!-- Messages Dropdown Menu -->
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="/assets/dist/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="/assets/dist/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="/assets/dist/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li> --}}
-                <!-- Notifications Dropdown Menu -->
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"
-                        role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li> --}}
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -203,18 +104,6 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image"> --}}
-                {{-- <img src="/assets/dist/img/boy.png" class="" alt="User Image"> --}}
-                {{-- <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
-                {{-- <img src="/assets/dist/img/boy.png" class="img-circle elevation-2" alt="User Image"> --}}
-                {{-- </div>
-                    <div class="info">
-                        <a href="#" class="d-block">{{ auth()->user()->name }}</a>
-                    </div>
-                </div> --}}
-
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="assets/dist/img/boy.png" class="img-circle elevation-2" alt="User Image">
@@ -223,19 +112,6 @@
                         <a href="/dashboard" class="d-block">{{ auth()->user()->name }}</a>
                     </div>
                 </div>
-
-                <!-- SidebarSearch Form -->
-                {{-- <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div> --}}
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -251,15 +127,6 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">  
-              <a href="/mobil" class="nav-link">
-                <i class="nav-icon fa-solid fa-box"></i>
-                <p>
-                  Mobil
-                </p>
-              </a>
-            </li> --}}
-
                         @if (auth()->user()->level == 'Admin')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -361,14 +228,6 @@
 
                                 </ul>
                             @endif
-                            {{-- <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/penduduk" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Penduduk</p>
-                                    </a>
-                                </li>
-                            </ul> --}}
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="/mdisabilitas" class="nav-link">
@@ -448,16 +307,6 @@
                             </a>
                         </li>
 
-
-                        {{-- <li class="nav-item mt-3">
-              <a class="log-out ml-3" href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-power-off" style="color: red;"></i>
-                Logout
-                <form action="/logout" method="POST" id="logging-out">
-                  @csrf
-                </form>
-              </a>
-            </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -525,12 +374,9 @@
     <script>
         $(function() {
             var url = window.location;
-            // for single sidebar menu
             $('ul.nav-sidebar a').filter(function() {
                 return this.href == url;
             }).addClass('active');
-
-            // for sidebar menu and treeview
             $('ul.nav-treeview a').filter(function() {
                     return this.href == url;
                 }).parentsUntil(".nav-sidebar > .nav-treeview")
@@ -544,7 +390,6 @@
 
     <script>
         $(function() {
-            // Initialize DataTable for #example1
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,
@@ -603,7 +448,6 @@
                 ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-            // Initialize DataTable for #example2
             $("#example2").DataTable({
                 "responsive": true,
                 "lengthChange": false,
@@ -654,9 +498,7 @@
                                 .addClass('compact')
                                 .css('font-size', 'inherit');
                         },
-                        exportOptions: {
-                            // columns: ':not(:last-child)'
-                        }
+                        exportOptions: {}
                     },
                     "colvis"
                 ]
@@ -667,26 +509,26 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "paging": false, // Menonaktifkan paging
-                "ordering": false, // Menonaktifkan sorting
-                "info": false, // Menonaktifkan info jumlah data
-                "searching": false, // Menonaktifkan pencarian
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "searching": false,
                 "buttons": [{
                         extend: "copy",
                         exportOptions: {
-                            columns: ':not(:last-child)' // Tidak termasuk kolom aksi
+                            columns: ':not(:last-child)'
                         }
                     },
                     {
                         extend: "csv",
                         exportOptions: {
-                            columns: ':not(:last-child)' // Tidak termasuk kolom aksi
+                            columns: ':not(:last-child)'
                         }
                     },
                     {
                         extend: "excel",
                         exportOptions: {
-                            columns: ':not(:last-child)' // Tidak termasuk kolom aksi
+                            columns: ':not(:last-child)'
                         }
                     },
                     {
@@ -698,7 +540,7 @@
                             doc.pageMargins = [10, 10, 10, 10];
                         },
                         exportOptions: {
-                            columns: ':not(:last-child)' // Tidak termasuk kolom aksi
+                            columns: ':not(:last-child)'
                         }
                     },
                     {
@@ -717,7 +559,7 @@
                                 .css('font-size', 'inherit');
                         },
                         exportOptions: {
-                            columns: ':not(:last-child)' // Tidak termasuk kolom aksi
+                            columns: ':not(:last-child)'
                         }
                     },
                     "colvis"

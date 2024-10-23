@@ -10,9 +10,6 @@ use PDF;
 
 class LuasWilayahController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
@@ -20,10 +17,5 @@ class LuasWilayahController extends Controller
         return view('demografi.luaswilayah.luaswilayah');
     }
 
-    public function show(Penduduk $penduduk)
-    {
-        //
-    }
-
-
+    public function show(Penduduk $penduduk) {}
 }

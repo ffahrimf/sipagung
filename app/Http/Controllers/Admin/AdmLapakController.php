@@ -71,14 +71,19 @@ class AdmLapakController extends Controller
         $lapakdesa->fill($request->except('image'));
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('img', 'public');
-            $lapakdesa->image = 'storage/img/' . basename($imagePath);
-        }
 
+            if ($lapakdesa->image && file_exists(storage_path('app/public/' . $lapakdesa->image))) {
+                unlink(storage_path('app/public/' . $lapakdesa->image));
+            }
+            $imagePath = $request->file('image')->store('img', 'public');
+            $lapakdesa->image = 'storage/' . $imagePath;
+        }
         $lapakdesa->save();
+
         Alert::info('Success', 'Lapak Desa has been updated!');
-        return redirect('/admin/lapakdesa');
+        return redirect()->route('admin.lapakdesa.index');
     }
+
 
     public function destroy(Lapakdesa $lapakdesa)
     {

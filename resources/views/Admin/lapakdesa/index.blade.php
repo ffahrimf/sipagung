@@ -79,8 +79,8 @@
                                                                 <span class="sr-only">Toggle Dropdown</span>
                                                             </button>
                                                             <div class="dropdown-menu" role="menu">
-                                                                <a class="dropdown-item"
-                                                                    href="/admin/lapakdesa/{{ $data->id }}/edit">Edit</a>
+                                                                {{-- <a class="dropdown-item"
+                                                                    href="/admin/lapakdesa/{{ $data->id }}/edit">Edit</a> --}}
                                                                 <form action="/admin/lapakdesa/{{ $data->id }}"
                                                                     method="POST" class="d-inline">
                                                                     @csrf

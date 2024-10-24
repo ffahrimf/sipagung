@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/lapakdesa">Lapak Desa</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/lapakdesa">Lapak Desa</a></li>
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <form class="needs-validation" novalidate action="/admin/lapakdesa/{{ $lapakdesa->id }}"
-                                method="POST" enctype="multipart/form-data">
+                                method="POST" enctype="multipart/form-data" novalidate>
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
@@ -80,7 +80,7 @@
                                                 <input type="text" name="mitra"
                                                     class="form-control @error('mitra') is-invalid @enderror" id="mitra"
                                                     placeholder="Mitra" value="{{ old('mitra', $lapakdesa->mitra) }}"
-                                                    required>
+                                                    style="text-transform: uppercase" required>
                                                 @error('mitra')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
                                                 @enderror
@@ -91,10 +91,10 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label for="link_wa">Link WA</label>
+                                                <label for="link_wa">Link Pembelian</label>
                                                 <input type="url" name="link_wa"
                                                     class="form-control @error('link_wa') is-invalid @enderror"
-                                                    id="link_wa" placeholder="Link WA"
+                                                    id="link_wa" placeholder="Link Pembelian"
                                                     value="{{ old('link_wa', $lapakdesa->link_wa) }}" required>
                                                 @error('link_wa')
                                                     <span class="invalid-feedback text-danger">{{ $message }}</span>
@@ -141,6 +141,6 @@
                 </div>
             </div>
         </div>
-        < </div>
+    </div>
 
-        @endsection
+@endsection

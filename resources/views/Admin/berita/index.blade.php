@@ -42,7 +42,7 @@
                                                 <th>Deskripsi</th>
                                                 <th>Tanggal</th>
                                                 <th>Gambar</th>
-                                                <th>Aksi</th>
+                                                {{-- <th>Aksi</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +62,7 @@
                                                         @endif
                                                     </td>
 
-                                                    <td>
+                                                    {{-- <td>
                                                         <div class="btn-group">
                                                             <button type="button" class="btn btn-info">Action</button>
                                                             <button type="button"
@@ -82,7 +82,7 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

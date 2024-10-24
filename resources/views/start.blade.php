@@ -289,30 +289,39 @@
                     </div>
                 </div>
             </div>
-            <div href="" class="w-full md:w-5/12 relative overflow-hidden rounded-2xl">
-                <img src="{{ asset($beritaTerbaru->image) }}" alt="{{ $beritaTerbaru->judul }}"
-                    class="object-cover w-full h-[inherit] brightness-75 transition-transform duration-[2000ms] transform hover:scale-110 border border-gray-200 shadow-lg">
+            @if ($beritaTerbaru)
+                <div href="" class="w-full md:w-5/12 relative overflow-hidden rounded-2xl">
+                    <img src="{{ asset($beritaTerbaru->image) }}" alt="{{ $beritaTerbaru->judul }}"
+                        class="object-cover w-full h-[inherit] brightness-75 transition-transform duration-[2000ms] transform hover:scale-110 border border-gray-200 shadow-lg">
 
-                <!-- Text Overlay -->
-                <div class="absolute bottom-0 left-0 w-full p-6 bg-transparent text-white font-poppins">
-                    <a href="/showcase/berita">
-                        <h3 class="text-xl md:text-2xl font-semibold">{{ $beritaTerbaru->heading }}:</h3>
-                        <p class="hidden md:block text-sm md:text-lg">
-                            {{ Str::limit($beritaTerbaru->judul, 35, '...') }}</p>
-                        <p class="md:hidden text-sm md:text-lg">{{ Str::limit($beritaTerbaru->judul, 30, '...') }}</p>
-                    </a>
-                    <div class="flex items-center mt-3 text-xs md:text-sm text-white">
-                        <div class="flex items-center mr-4">
-                            <i class="fa-solid fa-calendar-check mr-1"></i>
-                            <span>{{ \Carbon\Carbon::parse($beritaTerbaru->tanggal)->format('F j, Y') }}</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-comment mr-1 "></i>
-                            <span>0 Comment</span>
+                    <!-- Text Overlay -->
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-transparent text-white font-poppins">
+                        <a href="/showcase/berita">
+                            <h3 class="text-xl md:text-2xl font-semibold">{{ $beritaTerbaru->heading }}:</h3>
+                            <p class="hidden md:block text-sm md:text-lg">
+                                {{ Str::limit($beritaTerbaru->judul, 35, '...') }}</p>
+                            <p class="md:hidden text-sm md:text-lg">{{ Str::limit($beritaTerbaru->judul, 30, '...') }}
+                            </p>
+                        </a>
+                        <div class="flex items-center mt-3 text-xs md:text-sm text-white">
+                            <div class="flex items-center mr-4">
+                                <i class="fa-solid fa-calendar-check mr-1"></i>
+                                <span>{{ \Carbon\Carbon::parse($beritaTerbaru->tanggal)->format('F j, Y') }}</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-comment mr-1"></i>
+                                <span>0 Comment</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div href="" class="w-full md:w-5/12 relative overflow-hidden rounded-2xl">
+                    <img src="{{ asset('assets/img/no-berita.jpg') }}" alt="Default Title"
+                        class="object-cover w-full h-[inherit] transition-transform duration-[2000ms] transform hover:scale-110 border border-gray-200 shadow-lg hover:cursor-pointer">
+                </div>
+            @endif
+
 
         </div>
 

@@ -153,14 +153,14 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <ul class="nav nav-treeview">
+                                {{-- <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/lapakdesa" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Lapak Desa</p>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/berita" class="nav-link">

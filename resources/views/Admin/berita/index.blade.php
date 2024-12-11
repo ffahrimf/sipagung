@@ -1,4 +1,5 @@
 @extends('template.main')
+
 @section('title', 'Berita Desa')
 @section('content')
 
